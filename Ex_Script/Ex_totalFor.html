@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>총 복습 for문</title>
+  </head>
+  <body>
+    <h2>for문 종합 복습 문제</h2>
+    <p>숫자를 입력하세요:</p>
+    <input type="number" id="userNumber" placeholder="예: 5" />
+    <button onclick="solveProblem()">결과 보기</button>
+
+    <h3>출력 결과</h3>
+    <pre id="output"></pre>
+    <!-- 결과를 보기 좋게 출력 -->
+
+    <script>
+      function solveProblem() {
+        // 사용자가 입력한 값을 가져옴
+        let n = Number(document.getElementById('userNumber').value);
+
+        // 결과를 저장할 변수
+        let sum = 0; // 합계
+        let resultText = ''; // 화면에 출력할 텍스트
+
+        // 1. 1부터 n까지의 합 구하기
+        for (let i = 1; i <= n; i++) {
+          sum += i; // i를 계속 더함
+        }
+        resultText += `1부터 ${n}까지의 합 = ${sum}\n\n`;
+
+        // 2. n단 구구단 출력하기
+        resultText += `${n}단 구구단\n`;
+        for (let i = 1; i <= 9; i++) {
+          resultText += `${n} x ${i} = ${n * i}\n`;
+        }
+
+        // 결과를 HTML에 출력
+        document.getElementById('output').innerText = resultText;
+      }
+    </script>
+  </body>
+</html>

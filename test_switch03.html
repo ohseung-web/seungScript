@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>if연습</title>
+  </head>
+  <body>
+    <button onclick="showFruit()">과일 가격</button>
+    <input type="text" id="fruitInput" placeholder="과일 이름 입력" />
+    <p id="output2"></p>
+
+    <script>
+      function showFruit() {
+        let fruit = document.getElementById('fruitInput').value;
+        let result = '';
+
+        switch (fruit) {
+          case 'apple':
+            result = '사과: 1000원';
+            break;
+          case 'banana':
+            result = '바나나: 500원';
+            break;
+          case 'orange':
+            result = '오렌지: 700원';
+            break;
+          default:
+            result = '해당 과일은 없습니다.';
+        }
+
+        document.getElementById('output2').innerText = result;
+      }
+    </script>
+  </body>
+</html>

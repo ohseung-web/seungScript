@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>for</title>
+  </head>
+  <body>
+    <h3>문제 10 : 2단 ~ 9단 출력</h3>
+    <div id="output10"></div>
+
+    <script>
+      let result10 = '';
+      for (let dan = 2; dan <= 9; dan++) {
+        // 2단부터 9단까지
+        result10 += '<strong>' + dan + '단</strong><br>';
+        for (let i = 1; i <= 9; i++) {
+          // 각 단에서 1~9까지 곱하기
+          result10 += dan + ' x ' + i + ' = ' + dan * i + '<br>';
+        }
+        result10 += '<br>'; // 단과 단 사이 구분
+      }
+      document.getElementById('output10').innerHTML = result10;
+    </script>
+  </body>
+</html>

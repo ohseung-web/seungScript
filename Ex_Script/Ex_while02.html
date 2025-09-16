@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>while</title>
+  </head>
+  <body>
+    <h3>문제 : 1부터 20까지 짝수 출력</h3>
+    <p id="output2"></p>
+
+    <script>
+      let n = 1; // 시작 값 설정
+      let result = ''; // 결과를 저장할 변수
+
+      while (n <= 20) {
+        // n이 20 이하일 동안 반복
+        if (n % 2 === 0) {
+          // n이 짝수인지 검사
+          result += n + ' '; // 짝수일 경우 result에 추가
+        }
+        n++; // n을 1 증가
+      }
+
+      document.getElementById('output2').innerText = result; // 결과 출력
+    </script>
+  </body>
+</html>

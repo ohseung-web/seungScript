@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>총 복습 문제</title>
+  </head>
+  <body>
+    <h2>직원 근무시간 급여 계산</h2>
+    <label for="hours">근무 시간 입력: </label>
+    <input id="hours" type="number" placeholder="근무 시간 입력" />
+    <button onclick="calculateSalary()">급여 계산</button>
+
+    <p id="salaryResult"></p>
+    <p id="workMsg"></p>
+    <p id="payStatus"></p>
+
+    <script>
+      function calculateSalary() {
+        let workHours = Number(document.getElementById('hours').value);
+        let hourlyRate = 10000;
+
+        // if문으로 급여 계산
+        let salary;
+        if (workHours <= 8) {
+          salary = workHours * hourlyRate;
+        } else {
+          salary = 8 * hourlyRate + (workHours - 8) * hourlyRate * 1.5;
+        }
+        document.getElementById('salaryResult').textContent =
+          '급여: ' + salary + '원';
+
+        // switch(true)로 근무 메시지
+        let workMsg;
+        switch (true) {
+          case workHours === 0:
+            workMsg = '출근하지 않았습니다.';
+            break;
+          case workHours <= 8:
+            workMsg = '정상 근무';
+            break;
+          case workHours > 8:
+            workMsg = '초과 근무';
+            break;
+        }
+        document.getElementById('workMsg').textContent =
+          '근무 메시지: ' + workMsg;
+
+        // 3항연산자로 급여 여부
+        let payMsg = workHours === 0 ? '무급' : '급여 있음';
+        document.getElementById('payStatus').textContent =
+          '급여 상태: ' + payMsg;
+      }
+    </script>
+  </body>
+</html>

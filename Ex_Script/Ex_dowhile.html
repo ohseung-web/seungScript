@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>while</title>
+  </head>
+  <body>
+    <h3>1부터 입력한 숫자까지의 합 구하기</h3>
+    <input type="number" id="num" placeholder="숫자 입력"> <!-- 사용자 입력 -->
+    <button onclick="calcSum()">실행</button>
+    <div id="output"></div> <!-- 결과 출력 영역 -->
+
+  <script>
+    function calcSum() {
+      let n = Number(document.getElementById("num").value); // 입력값을 숫자로 변환
+      let i = 1;              // 시작 값 (1부터 시작)
+      let sum = 0;            // 합계를 저장할 변수
+
+      // do ~ while문은 조건과 상관없이 최소 1번 실행
+      do {
+        sum += i;             // 현재 i 값을 sum에 더하기
+        i++;                  // i를 1 증가
+      } while (i <= n);       // i가 입력한 n 이하일 동안 반복
+
+      document.getElementById("output").innerHTML = 
+        `1부터 ${n}까지의 합은 ${sum}입니다.`; // 결과 출력
+    }
+  </script>
+  </script>
+    </script>
+  </body>
+</html>

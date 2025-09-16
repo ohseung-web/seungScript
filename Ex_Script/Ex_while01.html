@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>while</title>
+  </head>
+  <body>
+    <h3>문제 : 1부터 10까지 출력</h3>
+    <p id="output1"></p>
+
+    <script>
+      let i = 1; // 시작 값 설정
+      let result = ''; // 결과를 저장할 변수
+
+      while (i <= 10) {
+        // i가 10 이하일 동안 반복
+        result += i + ' '; // 숫자를 result에 추가
+        i++; // i를 1 증가
+      }
+
+      document.getElementById('output1').innerHTML = result; // 결과 출력
+    </script>
+  </body>
+</html>

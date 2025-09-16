@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>for</title>
+  </head>
+  <body>
+    <h3>문제 2 : 1부터 10까지 거꾸로 출력</h3>
+    <div id="output2"></div>
+
+    <script>
+      let result2 = '';
+      for (let i = 10; i >= 1; i--) {
+        // i를 10부터 1까지 감소
+        result2 += i + ' '; // 현재 i 값을 result2에 추가
+      }
+      document.getElementById('output2').innerText = result2;
+    </script>
+  </body>
+</html>

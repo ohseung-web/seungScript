@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>if연습</title>
+  </head>
+  <body>
+    <h1>JavaScript if문</h1>
+    <h3>문제: 사용자가 입력한 숫자가 1과 10 사이인지 확인</h3>
+    <input id="num3" type="number" placeholder="숫자 입력" />
+    <button onclick="checkRange()">확인</button>
+    <p id="out9"></p>
+
+    <script>
+      function checkRange() {
+        let n = Number(document.getElementById('num3').value);
+        if (n >= 1 && n <= 10)
+          document.getElementById('out9').innerText = '범위 안에 있음';
+        else document.getElementById('out9').innerText = '범위 밖';
+      }
+    </script>
+  </body>
+</html>

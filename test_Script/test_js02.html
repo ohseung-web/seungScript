@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 1. 변수 선언과 값 출력 -->
+    <input id="numInput" type="number" placeholder="숫자 입력" />
+    <button onclick="showVariable()">값 확인</button>
+    <p id="output1"></p>
+
+    <script>
+      function showVariable() {
+        let num = Number(document.getElementById('numInput').value);
+        document.getElementById('output1').innerText = '변수 num의 값: ' + num;
+      }
+    </script>
+    <!-- 상수 선언과 출력 -->
+    <button onclick="showConstant()">상수 출력</button>
+    <p id="output2"></p>
+
+    <script>
+      function showConstant() {
+        const PI = 3.14;
+        document.getElementById('output2').innerText = '상수 PI 값: ' + PI;
+      }
+    </script>
+    <!-- 3. 사칙연산 계산기 -->
+    <input id="a" type="number" placeholder="첫 번째 숫자" />
+    <input id="b" type="number" placeholder="두 번째 숫자" />
+    <button onclick="calc()">계산</button>
+    <p id="output3"></p>
+
+    <script>
+      function calc() {
+        let a = Number(document.getElementById('a').value);
+        let b = Number(document.getElementById('b').value);
+        document.getElementById('output3').innerText =
+          '합: ' +
+          (a + b) +
+          ', 차: ' +
+          (a - b) +
+          ', 곱: ' +
+          a * b +
+          ', 나누기: ' +
+          a / b;
+      }
+    </script>
+    <!-- 4. 문자열 연결 -->
+    <input id="str1" placeholder="첫 번째 문자열" />
+    <input id="str2" placeholder="두 번째 문자열" />
+    <button onclick="concatStr()">연결</button>
+    <p id="output4"></p>
+    <!-- 5. 비교 연산자 실습 -->
+    <script>
+      function concatStr() {
+        let result =
+          document.getElementById('str1').value +
+          ' ' +
+          document.getElementById('str2').value;
+        document.getElementById('output4').innerText = result;
+      }
+    </script>
+    <!-- 6. 논리 연산자 실습 -->
+    <input id="num1" type="number" placeholder="숫자1" />
+    <input id="num2" type="number" placeholder="숫자2" />
+    <button onclick="compareNum()">비교</button>
+    <p id="output5"></p>
+
+    <script>
+      function compareNum() {
+        let n1 = Number(document.getElementById('num1').value);
+        let n2 = Number(document.getElementById('num2').value);
+        document.getElementById('output5').innerText =
+          'n1 > n2 ? ' + (n1 > n2) + ', n1 == n2 ? ' + (n1 == n2);
+      }
+    </script>
+    <!-- 7. 타입 확인 -->
+    <input id="x" type="checkbox" /> X <input id="y" type="checkbox" /> Y
+    <button onclick="logicCheck()">논리 확인</button>
+    <p id="output6"></p>
+
+    <script>
+      function logicCheck() {
+        let x = document.getElementById('x').checked;
+        let y = document.getElementById('y').checked;
+        document.getElementById('output6').innerText =
+          'X && Y: ' + (x && y) + ', X || Y: ' + (x || y);
+      }
+    </script>
+    <!-- 8. 간단한 조건문 실습 -->
+    <input id="value" placeholder="값 입력" />
+    <button onclick="checkType()">타입 확인</button>
+    <p id="output7"></p>
+
+    <script>
+      function checkType() {
+        let val = document.getElementById('value').value;
+        document.getElementById('output7').innerText =
+          '입력값 타입: ' + typeof val;
+      }
+    </script>
+    <!-- 9. 간단한 반복문 실습 -->
+    <input id="score" type="number" placeholder="점수 입력" />
+    <button onclick="checkGrade()">등급 확인</button>
+    <p id="output8"></p>
+
+    <script>
+      function checkGrade() {
+        let s = Number(document.getElementById('score').value);
+        let grade = s >= 90 ? 'A' : s >= 80 ? 'B' : s >= 70 ? 'C' : 'F';
+        document.getElementById('output8').innerText = '등급: ' + grade;
+      }
+    </script>
+
+    <input id="repeat" type="number" placeholder="횟수 입력" />
+    <button onclick="repeatHello()">출력</button>
+    <p id="output9"></p>
+
+    <script>
+      function repeatHello() {
+        let n = Number(document.getElementById('repeat').value);
+        let result = '';
+        for (let i = 1; i <= n; i++) {
+          result += i + ' : Hello\n';
+        }
+        document.getElementById('output9').innerText = result;
+      }
+    </script>
+    <!-- 10. 배열과 인덱스 접근 -->
+    <input id="index" type="number" placeholder="배열 인덱스 입력" />
+    <button onclick="showArray()">배열 출력</button>
+    <p id="output10"></p>
+
+    <script>
+      function showArray() {
+        let arr = ['사과', '바나나', '체리', '딸기'];
+        let idx = Number(document.getElementById('index').value);
+        if (idx < 0 || idx >= arr.length) {
+          document.getElementById('output10').innerText =
+            '범위를 벗어났습니다.';
+        } else {
+          document.getElementById('output10').innerText =
+            '배열 값: ' + arr[idx];
+        }
+      }
+    </script>
+  </body>
+</html>

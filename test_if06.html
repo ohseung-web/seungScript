@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>if연습</title>
+  </head>
+  <body>
+    <h1>JavaScript if문</h1>
+    <h3>문제: 국어, 영어, 수학 평균이 70 이상이면 "합격", 아니면 "불합격"</h3>
+    <input id="kor" type="number" placeholder="국어 점수" />
+    <input id="eng2" type="number" placeholder="영어 점수" />
+    <input id="math2" type="number" placeholder="수학 점수" />
+    <button onclick="avgPass()">확인</button>
+    <p id="out10"></p>
+
+    <script>
+      function avgPass() {
+        let k = Number(document.getElementById('kor').value);
+        let e = Number(document.getElementById('eng2').value);
+        let m = Number(document.getElementById('math2').value);
+        let avg = (k + e + m) / 3;
+        if (avg >= 70) document.getElementById('out10').innerHTML = '합격!';
+        else document.getElementById('out10').innerHTML = '불합격!';
+      }
+    </script>
+  </body>
+</html>

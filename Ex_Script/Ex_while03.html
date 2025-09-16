@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>while</title>
+  </head>
+  <body>
+    <h3>문제 : 사용자 입력 횟수만큼 Hello 출력 </h3>
+    <input type="number" id="count" placeholder="횟수 입력">
+    <button onclick="printHello()">실행</button>
+    <p id="output3"></p>
+
+  <script>
+    function printHello() {
+      let num = Number(document.getElementById("count").value); // 입력값을 숫자로 변환
+      let i = 0;                     // 반복 시작 값
+      let result = "";                // 결과를 저장할 변수
+
+      while (i < num) {               // i가 num보다 작을 동안 반복
+        result += "Hello<br>";        // "Hello"를 줄바꿈과 함께 추가
+        i++;                          // i를 1 증가
+      }
+
+      document.getElementById("output3").innerHTML = result; // 결과 출력
+    }
+  </script>
+    </script>
+  </body>
+</html>

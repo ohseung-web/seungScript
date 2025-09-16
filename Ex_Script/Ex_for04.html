@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>for</title>
+  </head>
+  <body>
+    <h3>문제 4 : 1부터 10까지의 합</h3>
+    <div id="output4"></div>
+
+    <script>
+      let sum4 = 0;
+      for (let i = 1; i <= 10; i++) {
+        // 1부터 10까지 반복
+        sum4 += i; // sum4에 i를 누적
+      }
+      document.getElementById('output4').innerText = '합계: ' + sum4;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>for</title>
+  </head>
+  <body>
+    <h3>문제 7 : 1부터 ~ n 까지의 합</h3>
+    <input type="number" id="num7" placeholder="숫자 입력" />
+    <button onclick="calcSum7()">실행</button>
+    <div id="output7"></div>
+
+    <script>
+      function calcSum7() {
+        let n = Number(document.getElementById('num7').value); // 사용자 입력
+        let sum7 = 0;
+        for (let i = 1; i <= n; i++) {
+          // 1부터 n까지 반복
+          sum7 += i;
+        }
+        document.getElementById('output7').innerText =
+          '1부터 ' + n + '까지의 합: ' + sum7;
+      }
+    </script>
+  </body>
+</html>

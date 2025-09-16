@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>if연습</title>
+  </head>
+  <body>
+    <h1>JavaScript if문</h1>
+    <h3>문제: 입력한 문자가 'y' 또는 'Y'면 "예", 아니면 "아니오"</h3>
+    <input id="char" type="text" maxlength="1" placeholder="한 글자 입력" />
+    <button onclick="checkYes()">확인</button>
+    <p id="out3"></p>
+
+    <script>
+      function checkYes() {
+        let c = document.getElementById('char').value;
+        if (c === 'y' || c === 'Y')
+          document.getElementById('out3').innerText = '예';
+        else document.getElementById('out3').innerText = '아니오';
+      }
+    </script>
+  </body>
+</html>

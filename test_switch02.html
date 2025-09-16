@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>switch 연습</title>
+  </head>
+  <body>
+    <button onclick="showDay()">요일 출력</button>
+    <input type="number" id="dayInput" placeholder="1~7 입력" />
+    <p id="output1"></p>
+
+    <script>
+      function showDay() {
+        let day = Number(document.getElementById('dayInput').value);
+        let result = '';
+
+        switch (day) {
+          case 1:
+            result = '월요일';
+            break;
+          case 2:
+            result = '화요일';
+            break;
+          case 3:
+            result = '수요일';
+            break;
+          case 4:
+            result = '목요일';
+            break;
+          case 5:
+            result = '금요일';
+            break;
+          case 6:
+            result = '토요일';
+            break;
+          case 7:
+            result = '일요일';
+            break;
+          default:
+            result = '잘못된 입력입니다.';
+        }
+
+        document.getElementById('output1').innerText = result;
+      }
+    </script>
+  </body>
+</html>

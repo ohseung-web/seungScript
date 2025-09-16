@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>for</title>
+  </head>
+  <body>
+    <h3>문제 1 : 1부터 10까지 출력</h3>
+    <div id="output1"></div>
+
+    <script>
+      let result1 = '';
+      for (let i = 1; i <= 10; i++) {
+        // i를 1부터 10까지 1씩 증가
+        result1 += i + ' '; // 현재 i 값을 result1에 추가
+      }
+      document.getElementById('output1').innerText = result1; // 결과 출력
+    </script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>for</title>
+  </head>
+  <body>
+    <h3>문제 5 : 1부터 10까지의 홀수의 합</h3>
+    <div id="output5"></div>
+
+    <script>
+      let sum5 = 0;
+      for (let i = 1; i <= 10; i++) {
+        if (i % 2 !== 0) {
+          // 홀수 조건
+          sum5 += i;
+        }
+      }
+      document.getElementById('output5').innerText = '홀수의 합: ' + sum5;
+    </script>
+  </body>
+</html>

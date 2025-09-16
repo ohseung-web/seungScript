@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>if연습</title>
+  </head>
+  <body>
+    <h1>JavaScript if문</h1>
+
+    <script>
+      // 짝수/홀수 판별법
+      let num = 5;
+      if (num % 2 == 0) {
+        console.log(`${num}은 짝수입니다.`);
+      } else {
+        console.log(`${num}은 홀수 입니다.`);
+      }
+
+      // 나이 판별법
+      let age = 20;
+      if (age >= 20) {
+        console.log(`성인입니다.`);
+      } else {
+        console.log('미성년자 입니다.');
+      }
+
+      // score가 90점이상 A, 80이상 B,
+      // 70이상 C, 60이상 D, 그 이외는 F
+      let score = 75;
+      if (score >= 90) {
+        console.log(`A`);
+      } else if (score >= 80) {
+        cosnsole.log(`B`);
+      } else if (score >= 70) {
+        console.log(`C`);
+      } else if (score >= 60) {
+        console.log(`D`);
+      } else {
+        console.log('F');
+      }
+
+      // id='admin'이면서 pw='1234'이면
+      // 로그인 성공, 아니면 로그인 실패
+      let id = 'admin';
+      let pw = '1234';
+      if (id == 'admin' && pw == '1234') {
+        console.log('로그인 성공');
+      } else {
+        console.log('로그인 실패');
+      }
+
+      // 숫자 비교
+      // a=7, b=3 숫자비교
+      // a가 b보다 크면 a, b가 크면 b,
+      // a==b같으면 같다. 출력
+      let a = 7,
+        b = 3;
+      if (a > b) {
+        console.log(a);
+      } else if (b > a) {
+        console.log(b);
+      } else {
+        console.log(`같다`);
+      }
+
+      // 세 수중 최대값 구하기
+      let d = 50,
+        e = 1,
+        f = 100;
+      let max = d; // 포인트
+      if (e > max) {
+        max = e;
+        console.log(max);
+      } else if (f > max) {
+        max = f;
+        console.log(max);
+      }
+      console.log(`최대값 : ${max}`);
+
+      // 음수/양수/0 판별하기
+      let n = -3;
+      if (n > 0) console.log(`양수`);
+      else if (n < 0) console.log(`음수`);
+      else console.log(`0`);
+
+      // 비밀번호 보안 검사
+      // pw의 입력된 값이 8글자면 안전한 비밀번호,
+      // 아니면 비밀번호가 짧습니다.
+      let password = 'abcd1234';
+      if (password.length == 8) console.log(`안전한 비밀번호`);
+      else console.log(`비밀번호가 짧습니다.`);
+
+      // 간단한 계산기
+      // op가 +, -, /, *인경우만 계산되고 아니면
+      // 잘못된 연산자 입니다. 출력
+      // 나누기 할 때는 나누는 값이 0이면
+      // 0으로 나눌 수 없음 으로 출력
+      let value1 = 1;
+      let value2 = 2;
+      let op = '*';
+      if (op == '+') console.log(`${value1 + value2}`);
+      else if (op == '-') console.log(`${value1 - value2}`);
+      else if (op == '*') console.log(`${value1 * value2}`);
+      else if (op == '/') {
+        if (value2 == 0) console.log(`0으로 나눌 수 없음`);
+        else console.log(`${value1 / value2}`);
+      } else console.log(`잘못된 연산자 입니다.`);
+
+      // 입력한 월(1~12)에 따라 계절 출력
+      let month = Number(prompt('문제7: 월(1~12)을 입력하세요'));
+      if (month >= 3 && month <= 5) {
+        document.write('문제7 정답: 봄입니다.<br>');
+      } else if (month >= 6 && month <= 8) {
+        document.write('문제7 정답: 여름입니다.<br>');
+      } else if (month >= 9 && month <= 11) {
+        document.write('문제7 정답: 가을입니다.<br>');
+      } else if (month === 12 || month === 1 || month === 2) {
+        document.write('문제7 정답: 겨울입니다.<br>');
+      } else {
+        document.write('문제7 정답: 잘못 입력했습니다.<br>');
+      }
+    </script>
+  </body>
+</html>

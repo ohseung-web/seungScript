@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>for</title>
+  </head>
+  <body>
+    <h3>문제 9 : *(별) 출력</h3>
+    <div id="output9"></div>
+
+    <script>
+      let result9 = '';
+      for (let i = 1; i <= 5; i++) {
+        // 줄 수 (1~5)
+        for (let j = 1; j <= i; j++) {
+          // 각 줄에서 출력할 별 개수
+          result9 += '* ';
+        }
+        result9 += '<br>'; // 줄 바꿈
+      }
+      document.getElementById('output9').innerHTML = result9;
+    </script>
+  </body>
+</html>

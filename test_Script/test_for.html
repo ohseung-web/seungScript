@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>for 반복문</title>
+  </head>
+  <body>
+    <script>
+      // 1부터 5까지 출력
+      for (let i = 10; i >= 1; i--) {
+        // i를 10부터 1까지 1씩 감소
+        console.log(i); // 현재 i 값을 출력
+      }
+
+      // 1부터 20까지 짝수만 출력
+      for (let i = 1; i <= 20; i++) {
+        // i를 1부터 20까지 반복
+        if (i % 2 === 0) {
+          // 짝수 조건
+          console.log(i); // 짝수일 때만 출력
+        }
+      }
+
+      // 1부터 10까지 합 구하기
+      let sum = 0; // 합계를 저장할 변수
+      for (let i = 1; i <= 10; i++) {
+        // i를 1부터 10까지 반복
+        sum += i; // i 값을 sum에 누적
+      }
+      console.log('1부터 10까지의 합:', sum);
+
+      // 구구단 5단 출력
+      for (let i = 1; i <= 9; i++) {
+        // i를 1부터 9까지 반복
+        console.log('5 x ' + i + ' = ' + 5 * i); // 5단 결과 출력
+      }
+    </script>
+  </body>
+</html>

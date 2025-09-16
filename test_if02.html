@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>if연습</title>
+  </head>
+  <body>
+    <h1>JavaScript if문</h1>
+    <h3>문제2: 영어 점수가 50 이상이고 수학 점수가 50 이상이면 "통과"</h3>
+    <input id="eng" type="number" placeholder="영어 점수" />
+    <input id="math" type="number" placeholder="수학 점수" />
+    <button onclick="checkPass()">확인</button>
+    <p id="out2"></p>
+
+    <script>
+      function checkPass() {
+        let e = Number(document.getElementById('eng').value);
+        let m = Number(document.getElementById('math').value);
+        if (e >= 50 && m >= 50)
+          document.getElementById('out2').innerText = '통과!';
+        else document.getElementById('out2').innerText = '불통과!';
+      }
+    </script>
+  </body>
+</html>

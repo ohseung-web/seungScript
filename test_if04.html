@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>if연습</title>
+  </head>
+  <body>
+    <h1>JavaScript if문</h1>
+    <h3>문제: 온도가 0도 이하면 "영하", 0~30도는 "보통", 30도 이상은 "더움"</h3>
+    <input id="temp" type="number" placeholder="온도 입력" />
+    <button onclick="checkTemp()">확인</button>
+    <p id="out6"></p>
+
+    <script>
+      function checkTemp() {
+        let t = Number(document.getElementById('temp').value);
+        if (t <= 0) document.getElementById('out6').innerText = '영하';
+        else if (t < 30) document.getElementById('out6').innerText = '보통';
+        else document.getElementById('out6').innerText = '더움';
+      }
+    </script>
+  </body>
+</html>

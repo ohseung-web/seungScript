@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>반복문</title>
+  </head>
+  <body>
+    <script>
+      // 전위연산자 ++a; 누적연산
+      a = 1;
+      b = ++a;
+      // b = 2
+      console.log(`b ${b}`);
+
+      // 후위연산자 a++;
+      c = 1;
+      d = c++;
+      // d = 1;
+      console.log(`d ${d}`);
+
+      // 1부터 5까지 출력하기
+      let i = 1; // 시작 숫자
+      while (i <= 5) {
+        // i가 5 이하일 동안 반복
+        console.log(i); // 현재 i 값을 콘솔에 출력
+        i++; // i를 1 증가시킴
+      }
+
+      // 10부터 1까지 거꾸로 출력하기
+      let n = 10; // 시작 숫자
+
+      while (n >= 1) {
+        // n이 1 이상일 동안 반복
+        console.log(n); // 현재 n 값을 콘솔에 출력
+        n--; // n을 1 감소시킴
+      }
+
+      // 1부터 20까지 홀수만 출력하기
+      let num = 1; // 시작 숫자
+
+      while (num <= 20) {
+        // num이 20 이하일 동안 반복
+        if (num % 2 !== 0) {
+          // num을 2로 나눈 나머지가 0이 아니면 (홀수 조건)
+          console.log(num); // 홀수만 출력
+        }
+        num++; // num을 1 증가시킴
+        console.log(`num의 누적상황 ${num}`);
+      }
+
+      // do ~ while 문
+      // 1부터 5까지 출력하기
+      let i2 = 1; // 시작 숫자
+      do {
+        console.log(i2); // 현재 i 값을 출력
+        i2++; // i를 1 증가
+      } while (i2 <= 5); // i가 5 이하이면 반복
+      // ----------------------------------------
+
+      let n2 = 10; // 시작 숫자
+      do {
+        console.log(n2); // 현재 n 값을 출력
+        n2--; // n을 1 감소
+      } while (n2 >= 1); // n이 1 이상이면 반복
+      // ------------------------------------------
+
+      let x = 20; // 시작 숫자를 20으로 설정 (조건에 맞지 않음)
+      do {
+        console.log('Hello'); // 조건과 상관없이 최소 1번은 실행
+        x++; // x를 증가 (여기서는 의미 없음)
+      } while (x < 10); // 조건이 false라서 반복 종료
+    </script>
+  </body>
+</html>
