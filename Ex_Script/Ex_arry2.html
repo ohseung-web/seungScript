@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>실습형 배열 + for문 + if문</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 20px;
+      }
+      input {
+        width: 300px;
+      }
+      button {
+        margin-left: 10px;
+      }
+      .question {
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>배열 + for문 + if문 문제</h1>
+
+    <!-- 문제 1 -->
+    <div class="question">
+      <label>1번 점수 배열 입력 (예: 95,67,80,55,100,72): </label>
+      <input id="scoreInput" type="text" value="95,67,80,55,100,72" />
+      <button onclick="scoreEvaluation()">결과 확인</button>
+      <p id="q1"></p>
+    </div>
+
+    <!-- 문제 2 -->
+    <div class="question">
+      <label>2번 숫자 배열 입력 (예: 12,7,5,20,33,18): </label>
+      <input id="numberInput" type="text" value="12,7,5,20,33,18" />
+      <button onclick="evenOdd()">결과 확인</button>
+      <p id="q2"></p>
+    </div>
+
+    <!-- 문제 3 -->
+    <div class="question">
+      <label
+        >3번 출석 배열 입력 (출석,결석,지각) (예: 출석,결석,출석,지각,출석):
+      </label>
+      <input
+        id="attendanceInput"
+        type="text"
+        value="출석,결석,출석,지각,출석"
+      />
+      <button onclick="attendanceCheck()">결과 확인</button>
+      <p id="q3"></p>
+    </div>
+
+    <!-- 문제 4 -->
+    <div class="question">
+      <label>4번 온도 배열 입력 (예: 15,22,30,35,18): </label>
+      <input id="tempInput" type="text" value="15,22,30,35,18" />
+      <button onclick="tempCheck()">결과 확인</button>
+      <p id="q4"></p>
+    </div>
+
+    <!-- 문제 5 -->
+    <div class="question">
+      <label
+        >5번 장바구니 가격 배열 입력 (예: 12000,5000,15000,3000,7000):
+      </label>
+      <input id="cartInput" type="text" value="12000,5000,15000,3000,7000" />
+      <button onclick="cartCheck()">결과 확인</button>
+      <p id="q5"></p>
+    </div>
+
+    <script>
+      // 문제 1: 학생 점수 평가
+      function scoreEvaluation() {
+        let input = document.getElementById('scoreInput').value;
+        let scores = input.split(',').map(Number);
+        let result = '';
+        for (let i = 0; i < scores.length; i++) {
+          if (scores[i] >= 90) result += scores[i] + '점: A, ';
+          else if (scores[i] >= 80) result += scores[i] + '점: B, ';
+          else if (scores[i] >= 70) result += scores[i] + '점: C, ';
+          else result += scores[i] + '점: F, ';
+        }
+        result = result.slice(0, -2);
+        document.getElementById('q1').innerText = result;
+      }
+
+      // 문제 2: 짝수/홀수 구분
+      function evenOdd() {
+        let input = document.getElementById('numberInput').value;
+        let numbers = input.split(',').map(Number);
+        let even = '',
+          odd = '';
+        for (let i = 0; i < numbers.length; i++) {
+          if (numbers[i] % 2 === 0) even += numbers[i] + ', ';
+          else odd += numbers[i] + ', ';
+        }
+        even = even.slice(0, -2);
+        odd = odd.slice(0, -2);
+        document.getElementById('q2').innerText =
+          '짝수: ' + even + ' / 홀수: ' + odd;
+      }
+
+      // 문제 3: 학생 출석 체크
+      function attendanceCheck() {
+        let input = document.getElementById('attendanceInput').value;
+        let arr = input.split(',');
+        let result = '';
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i].trim() === '출석') result += 'O, ';
+          else if (arr[i].trim() === '결석') result += 'X, ';
+          else if (arr[i].trim() === '지각') result += '△, ';
+        }
+        result = result.slice(0, -2);
+        document.getElementById('q3').innerText = result;
+      }
+
+      // 문제 4: 온도 상태 분류
+      function tempCheck() {
+        let input = document.getElementById('tempInput').value;
+        let temps = input.split(',').map(Number);
+        let result = '';
+        for (let i = 0; i < temps.length; i++) {
+          if (temps[i] >= 30) result += temps[i] + ': 뜨거움, ';
+          else if (temps[i] >= 20) result += temps[i] + ': 적당, ';
+          else result += temps[i] + ': 시원, ';
+        }
+        result = result.slice(0, -2);
+        document.getElementById('q4').innerText = result;
+      }
+
+      // 문제 5: 쇼핑카트 가격 분류
+      function cartCheck() {
+        let input = document.getElementById('cartInput').value;
+        let cart = input.split(',').map(Number);
+        let result = '';
+        for (let i = 0; i < cart.length; i++) {
+          if (cart[i] >= 10000) result += cart[i] + ': 고가, ';
+          else result += cart[i] + ': 저가, ';
+        }
+        result = result.slice(0, -2);
+        document.getElementById('q5').innerText = result;
+      }
+    </script>
+  </body>
+</html>

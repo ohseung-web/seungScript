@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>1차원 배열 + for문 + if문 심화 실습</title>
+  </head>
+  <body>
+    <h1>배열 + for문 + if문 심화 실습 문제 5개</h1>
+
+    <p id="q1"></p>
+    <p id="q2"></p>
+    <p id="q3"></p>
+    <p id="q4"></p>
+    <p id="q5"></p>
+
+    <script>
+      // 문제 1: 학생 점수 평가
+      let scores = [95, 67, 80, 55, 100, 72];
+      let scoreResult = '';
+      for (let i = 0; i < scores.length; i++) {
+        if (scores[i] >= 90) scoreResult += scores[i] + '점: A, ';
+        else if (scores[i] >= 80) scoreResult += scores[i] + '점: B, ';
+        else if (scores[i] >= 70) scoreResult += scores[i] + '점: C, ';
+        else scoreResult += scores[i] + '점: F, ';
+      }
+      scoreResult = scoreResult.slice(0, -2);
+      document.getElementById('q1').innerText =
+        '1번 (점수 평가): ' + scoreResult;
+
+      // 문제 2: 짝수/홀수 구분
+      let numbers = [12, 7, 5, 20, 33, 18];
+      let even = '';
+      let odd = '';
+      for (let i = 0; i < numbers.length; i++) {
+        if (numbers[i] % 2 === 0) even += numbers[i] + ', ';
+        else odd += numbers[i] + ', ';
+      }
+      even = even.slice(0, -2);
+      odd = odd.slice(0, -2);
+      document.getElementById('q2').innerText =
+        '2번 (짝수/홀수): 짝수: ' + even + ' / 홀수: ' + odd;
+
+      // 문제 3: 학생 출석 체크
+      let attendance = ['출석', '결석', '출석', '지각', '출석'];
+      let attendanceResult = '';
+      for (let i = 0; i < attendance.length; i++) {
+        if (attendance[i] === '출석') attendanceResult += 'O, ';
+        else if (attendance[i] === '결석') attendanceResult += 'X, ';
+        else if (attendance[i] === '지각') attendanceResult += '△, ';
+      }
+      attendanceResult = attendanceResult.slice(0, -2);
+      document.getElementById('q3').innerText =
+        '3번 (출석 체크): ' + attendanceResult;
+
+      // 문제 4: 온도 상태 분류
+      let temps = [15, 22, 30, 35, 18];
+      let tempResult = '';
+      for (let i = 0; i < temps.length; i++) {
+        if (temps[i] >= 30) tempResult += temps[i] + ': 뜨거움, ';
+        else if (temps[i] >= 20) tempResult += temps[i] + ': 적당, ';
+        else tempResult += temps[i] + ': 시원, ';
+      }
+      tempResult = tempResult.slice(0, -2);
+      document.getElementById('q4').innerText =
+        '4번 (온도 분류): ' + tempResult;
+
+      // 문제 5: 쇼핑카트 가격 분류
+      let cart = [12000, 5000, 15000, 3000, 7000];
+      let cartResult = '';
+      for (let i = 0; i < cart.length; i++) {
+        if (cart[i] >= 10000) cartResult += cart[i] + ': 고가, ';
+        else cartResult += cart[i] + ': 저가, ';
+      }
+      cartResult = cartResult.slice(0, -2);
+      document.getElementById('q5').innerText =
+        '5번 (쇼핑카트 가격): ' + cartResult;
+    </script>
+  </body>
+</html>

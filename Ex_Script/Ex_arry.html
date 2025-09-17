@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>배열, for문, if문, 3항연산자 실습</title>
+  </head>
+  <body>
+    <h1>문제 : arr for문 + if문 25 이상 출력</h1>
+
+    <p id="q1"></p>
+    <p id="q2"></p>
+    <p id="q3"></p>
+    <p id="q4"></p>
+    <p id="q5"></p>
+    <p id="q6"></p>
+    <p id="q7"></p>
+    <p id="q8"></p>
+    <p id="q9"></p>
+    <p id="q10"></p>
+    <p id="q11"></p>
+    <p id="q12"></p>
+    <p id="q13"></p>
+    <p id="q14"></p>
+    <p id="q15"></p>
+
+    <script>
+      // 1. fruits 배열 만들기
+      let fruits = ['사과', '바나나', '딸기'];
+      document.getElementById('q2').innerText = '1번: ' + fruits;
+
+      // 2. numbers 배열에서 인덱스 2 출력
+      let numbers = [10, 20, 30, 40, 50];
+      document.getElementById('q3').innerText = '2번: ' + numbers[2];
+
+      // 3. colors 배열에서 slice
+      let colors = ['red', 'green', 'blue', 'yellow'];
+      document.getElementById('q4').innerText = '3번: ' + colors.slice(0, 2);
+
+      // 4. names 배열 모든 요소 for문 출력
+      let names = ['Jason', 'Alice', 'Candy', 'Chris'];
+      let namesResult = '';
+      for (let i = 0; i < names.length; i++) {
+        namesResult += names[i] + ' ';
+      }
+      document.getElementById('q5').innerText = '4번: ' + namesResult;
+
+      // 5. 1~10 배열, 짝수만 출력 push 이용
+      let nums = [];
+      for (let i = 1; i <= 10; i++) nums.push(i);
+      let evenNums = '';
+      for (let i = 0; i < nums.length; i++) {
+        if (nums[i] % 2 === 0) evenNums += nums[i] + ' ';
+      }
+      document.getElementById('q6').innerText = '5번: ' + evenNums;
+
+      // 6. scores 배열, 80 이상 합격, 아니면 불합격
+      let scores = [90, 75, 88, 60];
+      let scoreResult = '';
+      for (let i = 0; i < scores.length; i++) {
+        if (scores[i] >= 80) scoreResult += '합격 ';
+        else scoreResult += '불합격 ';
+      }
+      document.getElementById('q1').innerText = '6번: ' + scoreResult;
+
+      // 7. ages 배열, 18 이상 성인
+      let ages = [15, 22, 17, 30];
+      let ageResult = '';
+      for (let i = 0; i < ages.length; i++) {
+        if (ages[i] >= 18) ageResult += '성인 ';
+        else ageResult += '미성년 ';
+      }
+      document.getElementById('q7').innerText = '7번: ' + ageResult;
+
+      // 8. ages 배열, 3항연산자로
+      let ageResult2 = '';
+      for (let i = 0; i < ages.length; i++) {
+        ageResult2 += ages[i] >= 18 ? '성인 ' : '미성년 ';
+      }
+      document.getElementById('q8').innerText = '8번(3항연산자): ' + ageResult2;
+
+      // 9. temperatures 배열 30이상이면 더움, 아니면, 괜찮음, 3항연산 이용
+      let temperatures = [32, 25, 28, 35];
+      let tempResult = '';
+      for (let i = 0; i < temperatures.length; i++) {
+        // tempResult += temperatures[i] >= 30 ? '더움 ' : '괜찮음 ';
+        tempResult += temperatures[i] >= 30 ? '더움 ' : '괜찮음 ';
+      }
+      document.getElementById('q15').innerText = '9번: ' + tempResult;
+
+      // 10. fruits pop
+      let fruits2 = ['apple', 'banana', 'cherry'];
+      let lastFruit = fruits2.pop();
+      document.getElementById('q10').innerText =
+        '10번(pop): ' + fruits2 + ', 제거된 요소: ' + lastFruit;
+
+      // 11. push 1~5
+      let arr = [];
+      for (let i = 1; i <= 5; i++) arr.push(i);
+      document.getElementById('q11').innerText = '11번(push): ' + arr;
+
+      // 12. nums shift
+      let nums2 = [1, 2, 3, 4, 5];
+      let firstNum = nums2.shift();
+      document.getElementById('q12').innerText =
+        '12번(shift): ' + nums2 + ', 제거된 요소: ' + firstNum;
+
+      // 13. nums unshift
+      let nums3 = [1, 2, 3];
+      nums3.unshift(0);
+      document.getElementById('q13').innerText = '13번(unshift): ' + nums3;
+
+      // 14. letters slice
+      let letters = ['a', 'b', 'c', 'd'];
+      document.getElementById('q14').innerText =
+        '14번(slice): ' + letters.slice(1, 3);
+
+      // 15. arr for문 + if문 25 이상 출력
+      let arr2 = [10, 20, 30, 40];
+      let filtered = '';
+      for (let i = 0; i < arr2.length; i++) {
+        if (arr2[i] >= 25) filtered += arr2[i] + ' ';
+      }
+      document.getElementById('q1').innerText = '15번: ' + filtered;
+    </script>
+  </body>
+</html>

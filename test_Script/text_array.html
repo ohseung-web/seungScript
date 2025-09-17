@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array(배열)</title>
+  </head>
+  <body>
+    <script>
+      // let ranking = ['Jason', 'Alice', 'Candy', 'Chris, Tom'];
+      // console.log(ranking);
+
+      let arrNumber = new Array();
+      console.log(arrNumber);
+
+      // 대문자 Array 사용
+      let arrScore = Array(80, 95, 100);
+      console.log(arrScore);
+
+      let jArr = new Array('오렌지', '포도', '딸기');
+      console.log(jArr);
+
+      let arrTotal = ['korea', 90, '2025-09-18'];
+      console.log(arrTotal);
+
+      // <h1>JavaScript 배열 연습문제</h1>;
+
+      // =========================
+      // 기초 (1~5)
+      // =========================
+
+      // 1. fruits 배열 만들기
+      let fruits = ['사과', '바나나', '포도'];
+      console.log('1번:', fruits);
+
+      // 2. numbers 배열에 1부터 5까지 숫자 넣기
+      let numbers = [1, 2, 3, 4, 5];
+      console.log('2번:', numbers);
+
+      // 3. colors 배열 만들고 첫 번째 요소 출력
+      let colors = ['빨강', '파랑', '노랑'];
+      console.log('3번:', colors[0]);
+
+      // 4. animals 배열 마지막 요소 출력
+      let animals = ['강아지', '고양이', '토끼'];
+      console.log('4번:', animals[animals.length - 1]);
+
+      // 5. names 배열 길이 출력
+      let names = ['Jason', 'Alice', 'Candy', 'Chris'];
+      console.log('5번:', names.length);
+
+      // =========================
+      // 중급 (6~10)
+      // =========================
+
+      // 6. scores 배열 2번째 요소 바꾸기
+      let scores = [80, 90, 100];
+      scores[1] = 95;
+      console.log('6번:', scores);
+
+      // 7. ranking 배열에 push 사용하여 "Tom" 추가
+      let ranking = ['Jason', 'Alice', 'Candy'];
+      ranking.push('Tom');
+      console.log('7번:', ranking);
+
+      // 8. ranking 배열 마지막 요소 제거 후 출력
+      let removed = ranking.pop();
+      console.log('8번 제거된 요소:', removed);
+      console.log('8번 남은 배열:', ranking);
+
+      // 9. fruits 배열에서 "바나나" 위치 찾기
+      let bananaIndex = fruits.indexOf('바나나');
+      console.log("9번 '바나나' 위치:", bananaIndex);
+
+      // 10. numbers 배열 오름차순 정렬
+      numbers.sort((a, b) => a - b);
+      console.log('10번 오름차순 정렬:', numbers);
+
+      // 10. numbers 배열 내림차순 정렬
+      numbers.sort((a, b) => b - a);
+      console.log('10-1번 내림차순 정렬:', numbers);
+
+      // 10-2 concat 배열 연결하기
+      let arry1 = ['국어', '수학'];
+      let arry2 = [90, 80];
+      let arry3 = arry1.concat(arry2);
+      console.log('10-2번 concat:', arry3);
+
+      // =========================
+      // 응용 (11~15)
+      // =========================
+
+      // 11. 2차원 배열 matrix 만들고 matrix[1][0] 출력
+      let matrix = [
+        [1, 2],
+        [3, 4],
+        [5, 6],
+      ];
+      console.log('11번 matrix[1][0]:', matrix[1][0]);
+
+      // 12. letters 배열 slice로 "b", "c" 출력
+      // slice(start index, end index)
+      // start: 시작 인덱스 (포함)
+      // end: 끝 인덱스 (포함하지 않음 → exclusive)
+      let letters = ['a', 'b', 'c', 'd'];
+      console.log('12번 slice:', letters.slice(1, 3));
+
+      // 13. numbers 배열 for문으로 합계 계산
+      let numArr = [1, 2, 3, 4, 5];
+      let sum = 0;
+      for (let i = 0; i < numArr.length; i++) {
+        sum += numArr[i];
+      }
+      console.log('13번 합계:', sum);
+
+      // 14. fruits 배열 forEach로 "좋아하는 " 붙여 출력
+      fruits.forEach((fruit) => console.log('14번 좋아하는 ' + fruit));
+
+      // 15. scores 배열 map으로 10 더한 새 배열 만들기
+      let newScores = scores.map((score) => score + 10);
+      console.log('15번 10 더한 새 배열:', newScores);
+    </script>
+  </body>
+</html>
