@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>투표 집계</title>
+    <style>
+      .winner {
+        font-weight: bold;
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>투표 결과</h2>
+    <button onclick="voteResult()">투표 집계</button>
+    <div id="output4"></div>
+
+    <script>
+      function voteResult() {
+        let candidates = ['철수', '영희', '민수'];
+        let votes = [120, 150, 90];
+        let maxVotes = 0;
+        let winnerIndex = 0;
+        let result = '';
+
+        for (let i = 0; i < candidates.length; i++) {
+          if (votes[i] > maxVotes) {
+            maxVotes = votes[i];
+            winnerIndex = i;
+          }
+        }
+
+        for (let i = 0; i < candidates.length; i++) {
+          let className = i === winnerIndex ? 'winner' : '';
+          result +=
+            candidates[i] +
+            ' : ' +
+            votes[i] +
+            "표 <span class='" +
+            className +
+            "'>" +
+            (i === winnerIndex ? '1등' : '') +
+            '</span><br>';
+        }
+
+        document.getElementById('output4').innerHTML = result;
+      }
+    </script>
+  </body>
+</html>

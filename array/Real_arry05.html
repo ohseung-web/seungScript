@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>영화 평점</title>
+    <style>
+      .recommend {
+        font-weight: bold;
+        color: purple;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>영화 평점 분석</h2>
+    <button onclick="movieRating()">평점 확인</button>
+    <div id="output5"></div>
+
+    <script>
+      function movieRating() {
+        let movies = ['어벤져스', '인셉션', '기생충', '라라랜드'];
+        let ratings = [9, 8, 10, 7];
+        let result = '';
+
+        for (let i = 0; i < movies.length; i++) {
+          let status = ratings[i] >= 8 ? '추천' : '';
+          let className = ratings[i] >= 8 ? 'recommend' : '';
+          result +=
+            movies[i] +
+            ' : ' +
+            ratings[i] +
+            "점 <span class='" +
+            className +
+            "'>" +
+            status +
+            '</span><br>';
+        }
+
+        document.getElementById('output5').innerHTML = result;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>책 재고</title>
+    <style>
+      .low-stock {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>책 재고 현황</h2>
+    <button onclick="checkStock()">재고 확인</button>
+    <div id="output2"></div>
+
+    <script>
+      function checkStock() {
+        let books = [
+          '자바스크립트 입문',
+          'HTML & CSS',
+          '파이썬 기초',
+          '데이터 분석',
+        ];
+        let stock = [10, 3, 7, 2];
+        let result = '';
+
+        for (let i = 0; i < books.length; i++) {
+          let status = stock[i] <= 5 ? '재고 부족' : '재고 충분';
+          let className = stock[i] <= 5 ? 'low-stock' : '';
+          result +=
+            books[i] +
+            ' : ' +
+            stock[i] +
+            "권 - <span class='" +
+            className +
+            "'>" +
+            status +
+            '</span><br>';
+        }
+
+        document.getElementById('output2').innerHTML = result;
+      }
+    </script>
+  </body>
+</html>

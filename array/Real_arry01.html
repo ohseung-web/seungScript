@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>학생 성적표</title>
+    <style>
+      .pass {
+        color: green;
+      }
+      .fail {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>학생 성적표</h2>
+    <button onclick="showGrades()">성적표 출력</button>
+    <div id="output1"></div>
+
+    <script>
+      function showGrades() {
+        let students = ['철수', '영희', '민수', '수지', '준호'];
+        let scores = [85, 58, 92, 77, 61];
+        let result = '';
+
+        for (let i = 0; i < students.length; i++) {
+          let status = scores[i] >= 60 ? '합격' : '불합격';
+          let className = scores[i] >= 60 ? 'pass' : 'fail';
+          result +=
+            students[i] +
+            ' : ' +
+            scores[i] +
+            "점 - <span class='" +
+            className +
+            "'>" +
+            status +
+            '</span><br>';
+        }
+
+        document.getElementById('output1').innerHTML = result;
+      }
+    </script>
+  </body>
+</html>

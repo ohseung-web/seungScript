@@ -1,0 +1,27 @@
+<div id="tab6" class="tab">
+  <h2>학생 키 비교</h2>
+  <button onclick="checkHeight()">키 확인</button>
+  <div id="output6"></div>
+</div>
+
+<script>
+  function checkHeight() {
+    let students = ['철수', '영희', '민수', '수지', '준호'];
+    let heights = [172, 165, 180, 158, 175];
+    let result = '';
+    for (let i = 0; i < students.length; i++) {
+      let status = heights[i] >= 170 ? '키 큰 학생' : '키 작은 학생';
+      let className = heights[i] >= 170 ? 'high' : 'low';
+      result +=
+        students[i] +
+        ' : ' +
+        heights[i] +
+        "cm - <span class='" +
+        className +
+        "'>" +
+        status +
+        '</span><br>';
+    }
+    document.getElementById('output6').innerHTML = result;
+  }
+</script>

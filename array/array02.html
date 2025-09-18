@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2차원 배열</title>
+  </head>
+  <body>
+    <script>
+      // 좌표에 값을 입력하기
+
+      // let arr = [
+      //   [1, 2, 3],
+      //   [4, 5, 6],
+      //   [7, 8, 9],
+      // ];
+
+      // for (let i = 0; i < arr.length; i++) {
+      //   for (let j = 0; j < arr[i].length; j++) {
+      //     console.log(arr[i][j]);
+      //   }
+      // }
+      let arr = [
+        ['a', 'b'],
+        ['c', 'd'],
+        ['e', 'f'],
+      ];
+      for (let i = 0; i < arr.length; i++) {
+        //행
+        for (let j = 0; j < arr[i].length; j++) {
+          //열
+          console.log(arr[i][j]);
+        }
+      }
+
+      // 2행 3열
+      let arr2 = new Array(2);
+      for (let i = 0; i < arr2.length; i++) {
+        arr2[i] = new Array(3);
+        for (let j = 0; j < arr2[i].length; j++) {
+          arr2[i][j] = i * 10 + j;
+        }
+      }
+      // 출력
+      for (let i = 0; i < arr2.length; i++) {
+        for (let j = 0; j < arr2[i].length; j++) {
+          console.log(`${[i]},${[j]} : ${arr2[i][j]}`);
+        }
+      }
+
+      // 2차원 배열 함수 이용 생성하기
+      function array2D(row, col) {
+        let arr3 = new Array(row);
+        for (let i = 0; i < arr3.length; i++) {
+          arr3[i] = new Array(col);
+        }
+        return arr3;
+      }
+      let arr3 = array2D(4, 2);
+
+      // 출력하기
+      for (let i = 0; i < arr3.length; i++) {
+        for (let j = 0; j < arr3[i].length; j++) {
+          console.log(`${[i]},${[j]}`);
+        }
+      }
+      // arr3는 함수 내부에서 생성된 지역 변수입니다.
+      // 함수 안에서는 arr3를 자유롭게 만들고 수정할 수 있지만,
+      // 함수 밖에서는 이 변수에 접근할 수 없습니다.
+      // return arr3;는 함수 밖으로 arr3 값을 보내주는 역할을 합니다.
+
+      // 6행 7열 2차원 배열 생성 (빈 배열)
+      // ES6를 지원하는 최신 브라우저
+      const arr1 = Array.from(Array(6), () => new Array(7));
+
+      // 값 채우기 예시: 행 번호 + 열 번호
+      for (let i = 0; i < arr1.length; i++) {
+        for (let j = 0; j < arr1[i].length; j++) {
+          arr1[i][j] = `${i},${j}`; // 각 요소에 "i,j" 문자열 저장
+        }
+      }
+
+      // 콘솔에 출력
+      for (let i = 0; i < arr1.length; i++) {
+        console.log(arr1[i]);
+      }
+    </script>
+  </body>
+</html>

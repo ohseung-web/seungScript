@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>상품 가격 비교</title>
+    <style>
+      .high {
+        color: red;
+      }
+      .low {
+        color: blue;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>상품 가격 비교</h2>
+    <button onclick="showProducts()">상품 출력</button>
+    <div id="output3"></div>
+
+    <script>
+      function showProducts() {
+        let products = ['노트북', '마우스', '모니터', '키보드'];
+        let prices = [120000, 30000, 80000, 40000];
+        let result = '<table><tr><th>상품</th><th>가격</th><th>등급</th></tr>';
+
+        for (let i = 0; i < products.length; i++) {
+          let grade = prices[i] >= 50000 ? '고가' : '저가';
+          let className = prices[i] >= 50000 ? 'high' : 'low';
+          result +=
+            '<tr><td>' +
+            products[i] +
+            '</td><td>' +
+            prices[i] +
+            "원</td><td class='" +
+            className +
+            "'>" +
+            grade +
+            '</td></tr>';
+        }
+        result += '</table>';
+        document.getElementById('output3').innerHTML = result;
+      }
+    </script>
+  </body>
+</html>
