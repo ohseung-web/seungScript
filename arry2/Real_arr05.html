@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>학생 성적표</title>
+  </head>
+  <body>
+    <h2>성적 분석 프로그램</h2>
+    <p id="output"></p>
+
+    <script>
+      let names = ['홍길동', '개나리', '진달래'];
+      let subjects = ['국어', '영어', '수학'];
+      let scores = [
+        [85, 90, 78], // 홍길동
+        [92, 88, 95], // 개나리
+        [76, 85, 83], // 진달래
+      ];
+
+      let result = '';
+
+      // 1) 학생별 총점과 평균
+      result += '[학생별 총점과 평균] <br/>';
+      for (let i = 0; i < scores.length; i++) {
+        let sum = 0;
+        for (let j = 0; j < scores[i].length; j++) {
+          sum += scores[i][j];
+        }
+        let avg = (sum / scores[i].length).toFixed(1);
+        result += `${names[i]} 총점: ${sum}, 평균: ${avg} <br/>`;
+      }
+      result += '<br/>';
+
+      // 2) 과목별 평균
+      result += '[과목별 평균] <br/>';
+      for (let j = 0; j < subjects.length; j++) {
+        let sum = 0;
+        for (let i = 0; i < scores.length; i++) {
+          sum += scores[i][j];
+        }
+        let avg = (sum / scores.length).toFixed(1);
+        result += `${subjects[j]} 평균: ${avg}<br/>`;
+      }
+      result += '<br/>';
+
+      // 3) 최고 점수 학생
+      let maxScore = 0;
+      let topStudent = '';
+      for (let i = 0; i < scores.length; i++) {
+        for (let j = 0; j < scores[i].length; j++) {
+          if (scores[i][j] > maxScore) {
+            maxScore = scores[i][j];
+            topStudent = names[i];
+          }
+        }
+      }
+      result += '[최고 점수 학생] <br/>';
+      result += `${topStudent} (${maxScore}점) <br/>`;
+
+      // 출력
+      document.getElementById('output').innerHTML = result;
+    </script>
+  </body>
+</html>

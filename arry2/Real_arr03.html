@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2차원 배열 실습문제</title>
+    <style>
+      table {
+        width: 300px;
+        height: 200px;
+        text-align: center;
+        border-collapse: collapse;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" id="example3">
+      <h2>3. 달력 만들기 (6x7)</h2>
+      <pre id="calendarOutput"></pre>
+    </div>
+    <script>
+      // 3. 달력 만들기
+      let calendar = Array.from(Array(6), () => new Array(7));
+      let output = document.getElementById('calendarOutput');
+      let result = '<table border="1">';
+
+      // 요일 헤더
+      const weekdays = ['일', '월', '화', '수', '목', '금', '토'];
+
+      // 달력 만들기
+      let day = 1; // 1일부터 시작
+      let lastDay = 31; // 1달 31일까지
+
+      // 헤더부분
+      result += '<tr>';
+      // let header = weekdays.map((value) => {
+      //   return (result += '<th>' + value + '</th>');
+      // });
+      result += '<tr>';
+      weekdays.forEach((value) => {
+        result += '<th>' + value + '</th>';
+      });
+      result += '</tr>';
+
+      // 날짜 채우기
+      for (let i = 0; i < 6; i++) {
+        result += '<tr>';
+        for (let j = 0; j < 7; j++) {
+          if (day <= lastDay) {
+            calendar[i][j] = day;
+            result += `<td>${day}</td>`;
+            day++;
+          } else {
+            result += '<td></td>'; // 남는 칸은 빈칸
+          }
+        }
+        result += '</tr>';
+        // 날짜 31일 입력이 끝나면 더 이상 출력안하고 나감
+        if (day > lastDay) break;
+      }
+      result += '</table>';
+      output.innerHTML = result;
+    </script>
+  </body>
+</html>

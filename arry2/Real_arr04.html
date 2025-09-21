@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2차원 배열 실습문제</title>
+    <style>
+      table {
+        width: 300px;
+        height: 300px;
+        text-align: center;
+        border-collapse: collapse;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" id="example8">
+      <h2> 상품 재고 현황</h2>
+      <pre id="stockOutput"></pre>
+    </di>
+    <script>
+      // 8. 상품 재고 현황
+      let stock = [
+        [10, 5, 8, 12], // 과일
+        [20, 15, 18, 25], // 음료
+        [30, 25, 28, 15]  // 간식
+      ];
+      let result = '';
+      let output = document.getElementById('stockOutput');
+      let total = 0;
+      
+      stock.forEach((cat,i)=>{
+
+        for(let j=0; j<cat.length; j++){
+            total += cat[j];
+        }
+        
+        result += `카테고리${i+1}: ${cat.join(',')} | 총재고: ${total} <br/>`;
+      });
+      output.innerHTML = result;
+    </script>
+  </body>
+</html>

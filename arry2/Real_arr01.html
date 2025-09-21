@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2차원 배열 실습문제</title>
+    <style>
+      table {
+        width: 300px;
+        height: 300px;
+        text-align: center;
+        border-collapse: collapse;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>자바스크립트 2차원 배열 실습 예제</h1>
+
+    <div class="container" id="example1">
+      <h2>1. 좌석 배치표 (5x5)</h2>
+      <pre id="seatOutput"></pre>
+    </div>
+    <script>
+      // let seat = [];
+      let seat = Array.from(Array(5), () => new Array(5));
+      let count = 1;
+      let result = '<table border="1">';
+      let output = document.getElementById('seatOutput');
+      for (let i = 0; i < 5; i++) {
+        seat[i] = [];
+        result += '<tr>'; //한행 생성
+        for (let j = 0; j < 5; j++) {
+          seat[i][j] = count++;
+          result += '<td>' + seat[i][j] + '</td>';
+        }
+        result += '</tr>'; //한 행 닫기
+      }
+      result += '</table>';
+      output.innerHTML = result;
+    </script>
+  </body>
+</html>

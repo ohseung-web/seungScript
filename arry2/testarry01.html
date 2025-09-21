@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2차원 배열</title>
+  </head>
+  <body>
+    <script>
+      // fill(0) => 빈배열안에 값을 꽉채우는 메서드
+      // fill(value, start, end)
+      // value => 배열을 채울 값
+      // start => 채우기 시작할 인덱스, 기본값 :0
+      // end => 채우기를 끝낼 인덱스 , 기본값 : 배열길이
+      const arr01 = Array.from(Array(2), () => new Array(3).fill(0));
+      console.log(arr01);
+      const arr02 = Array.from(Array(2), () => new Array(3).fill('X'));
+      console.log(arr02);
+
+      // 왼쪽 위 - 오른쪽 아래 대각선만 1로 채우기, 나머지는 0
+      // 1 0 0 => [0,0]
+      // 0 1 0 => [1,1]
+      // 0 0 1 => [2,2]
+      const arr03 = Array.from(Array(3), () => new Array(3).fill(0));
+      console.log(arr03);
+      // 1채우는 코드
+      for (let i = 0; i < arr03.length; i++) {
+        for (let j = i; j <= i; j++) {
+          arr03[i][j] = 1;
+        }
+      }
+      // 콘솔에 출력하는 코드
+      for (let i = 0; i < arr03.length; i++) {
+        console.log(arr03[i]);
+      }
+
+      // 2행 4열 짜리 배열 => 1부터 8 채우기
+      const arr04 = Array.from(Array(2), () => new Array(4));
+      // 1 2 3 4
+      // 5 6 7 8 => [1,0][1,1][1,2],[1,3]
+      let num = 1;
+      for (let i = 0; i < arr04.length; i++) {
+        for (let j = 0; j < arr04[i].length; j++) {
+          // if (i === 1) {
+          //   arr04[i][j] = j + 5;
+          // } else {
+          //   arr04[i][j] = j + 1;
+          // }
+          arr04[i][j] = num++;
+          // console.log(arr04[i][j]);
+        }
+      }
+      for (let i = 0; i < arr04.length; i++) {
+        console.log(arr04[i]);
+      }
+
+      // 4행, 4열 배열을 만든 후 짝수열은 0, 홀수열은 1로 채우기
+      // 0 0 0 0
+      // 0 0 0 0
+      // 0 0 0 0
+      // 0 0 0 0
+      let num2 = 1;
+      let arr05 = Array.from(Array(4), () => new Array(4));
+      for (let i = 0; i < arr05.length; i++) {
+        for (let j = 0; j < arr05[i].length; j++) {
+          if ((j + 1) % 2 === 0) {
+            arr05[i][j] = 0;
+          } else {
+            arr05[i][j] = 1;
+          }
+          // arr05[i][j] = num % 2 === 0 ? 0 : 1;
+          // num++;
+        }
+      }
+      for (let i = 0; i < arr05.length; i++) {
+        console.log(arr05[i]);
+      }
+
+      // 합 구하기
+      let total = 0;
+      let arr06 = [
+        [1, 2, 3],
+        [4, 5, 6],
+      ];
+
+      for (let i = 0; i < arr06.length; i++) {
+        for (let j = 0; j < arr06[i].length; j++) {
+          total += arr06[i][j];
+        }
+      }
+      console.log(`배열의 합계 : ${total}`);
+
+      // arr06의 행별의 합
+      // 1 2 3 => [0,0][0,1][0,2]
+      // 4 5 6 => [1,0][1,1][1,2]
+
+      for (let i = 0; i < arr06.length; i++) {
+        let rowTotal = 0;
+        for (let j = 0; j < arr06[i].length; j++) {
+          rowTotal += arr06[i][j];
+        }
+        console.log(`배열의 행의합계 : ${rowTotal}`);
+      }
+
+      // 최대값 찾아 출력하기
+      let arr07 = [
+        [3, 9, 2],
+        [8, 7, 6],
+        [1, 4, 5],
+      ];
+      let max = 0;
+      let chkRow = 0,
+        chkCol = 0;
+      for (let i = 0; i < arr07.length; i++) {
+        for (let j = 0; j < arr07[i].length; j++) {
+          if (arr07[i][j] > max) {
+            max = arr07[i][j];
+            chkRow = i;
+            chkCol = j;
+          }
+        }
+      }
+
+      console.log(`최대값 : ${arr07[chkRow][chkCol]}`);
+
+      // forEach(), map() 반복문 활용하여 배열 출력하기
+      const arr08 = [10, 20, 30];
+      arr08.forEach((value, index, array) => {
+        console.log(`${index}:${value}`);
+        console.log(`${array}`);
+      });
+
+      let arr09 = ['apple', 'banana', 'cherry'];
+
+      arr09.forEach((value, index, array) => {
+        console.log('value:', value); // 현재 요소
+        console.log('index:', index); // 현재 인덱스
+        console.log('array:', array); // 원본 배열
+        console.log('---');
+      });
+
+      // map()
+      let arr = [1, 2, 3];
+      // let doubled = arr.map((value, index, array) => {
+      //   console.log(value);
+      //   console.log(index);
+      //   console.log(array);
+      //   return value * 10;
+      // });
+      //이름이 x이든 value이든 item이든 의미는 동일.
+      // 순서가 중요: 첫 번째 매개변수 = 요소, 두 번째 = 인덱스, 세 번째 = 원본 배열.
+      // let doubled = arr.map((x) => {
+      //   return x * 10;
+      // });
+      // let doubled1 = arr.map((_, y) => {
+      //   return y * 10;
+      // });
+      // let doubled2 = arr.map((_, __, k) => {
+      //   return k;
+      // });
+      let doubled = arr.map((igr, index, igr2) => {
+        return index * 10;
+      });
+
+      console.log(doubled);
+
+      let arr10 = ['apple', 'banana', 'cherry'];
+      let indices = arr10.map((_, index) => {
+        console.log('index:', index); // index 출력
+        return index; // map은 새 배열 반환
+      });
+
+      console.log('indices array:', indices);
+    </script>
+  </body>
+</html>
