@@ -141,6 +141,22 @@
 
       // map()
       let arr = [1, 2, 3];
+
+      let doubled = arr.map((igr, index, igr2) => {
+        return index * 10;
+      });
+
+      console.log(doubled);
+
+      let arr10 = ['apple', 'banana', 'cherry'];
+      let indices = arr10.map((_, index) => {
+        console.log('index:', index); // index 출력
+        return index; // map은 새 배열 반환
+      });
+
+      console.log('indices array:', indices);
+
+      
       // let doubled = arr.map((value, index, array) => {
       //   console.log(value);
       //   console.log(index);
@@ -158,19 +174,7 @@
       // let doubled2 = arr.map((_, __, k) => {
       //   return k;
       // });
-      let doubled = arr.map((igr, index, igr2) => {
-        return index * 10;
-      });
-
-      console.log(doubled);
-
-      let arr10 = ['apple', 'banana', 'cherry'];
-      let indices = arr10.map((_, index) => {
-        console.log('index:', index); // index 출력
-        return index; // map은 새 배열 반환
-      });
-
-      console.log('indices array:', indices);
+      
     </script>
   </body>
 </html>

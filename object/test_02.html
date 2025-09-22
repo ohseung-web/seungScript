@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>연습문제</title>
+  </head>
+  <body>
+    <script>
+      let now = new Date();
+      let weekString = ['일', '월', '화', '수', '목', '금', '토'];
+
+      document.write(
+        `${now.getFullYear()}년 ${now.getMonth() + 1}월 ${now.getDate()}일 ${
+          weekString[now.getDay()]
+        }요일<br>`
+      );
+      document.write(
+        `${now.getHours()}시 ${now.getMinutes()}분 ${now.getSeconds()}초 ${now.getMilliseconds()}밀리초<br>`
+      );
+      document.write(`toLocalDateString : ${now.toLocaleDateString()}<br>`);
+      document.write(`toLocalTimeString : ${now.toLocaleTimeString()}`);
+    </script>
+  </body>
+</html>

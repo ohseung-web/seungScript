@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이미지 출력</title>
+    <style>
+      .img-container {
+        display: flex; /* 한 줄 정렬 */
+        gap: 15px; /* 간격 */
+        justify-content: center; /* 가운데 정렬 */
+        margin-top: 20px;
+      }
+      .card {
+        text-align: center;
+      }
+      .card img {
+        width: 200px;
+        height: 150px;
+        border-radius: 10px;
+        box-shadow: 2px 2px 5px gray;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>이미지 출력 예제 (&lt;img&gt; 태그 사용)</h2>
+    <div class="img-container" id="gallery"></div>
+    <script>
+      let gallery = document.getElementById('gallery');
+      let imgList = [
+        ['https://picsum.photos/id/1011/400/300', '산'],
+        ['https://picsum.photos/id/1025/400/300', '강아지'],
+        ['https://picsum.photos/id/1003/400/300', '건물'],
+        ['https://picsum.photos/id/1035/400/300', '해변'],
+        ['https://picsum.photos/id/1040/400/300', '숲'],
+      ];
+
+      // for (let i = 0; i < imgList.length; i++) {
+      //   for (let j = 0; j < imgList[i].length; j++) {
+      //     // 이미지가 2개씩 출력되므로 if로 조건 주기
+      //     if (j === 0) {
+      //       gallery.innerHTML += `<div class="card">
+      //           <img src="${imgList[i][j]}" alt="${imgList[i][1]}">
+      //           <p>${imgList[i][1]}
+      //           `;
+      //     }
+      //   }
+      // }
+
+      // map()이용
+      // map()으로 HTML 코드 생성 후 join("")으로 합치기
+      gallery.innerHTML = imgList
+        .map((item) => {
+          return `
+          <div class="card">
+            <img src="${item[0]}" alt="${item[1]}">
+            <p>${item[1]}</p>
+          </div>
+        `;
+        })
+        .join('');
+      //  map()은 다른 배열로 생성하여 출력되기 때문에 , 가 생김
+      //  join()사용하지 않으면 ,가 안지워짐
+
+      // gallery.innerHTML = result;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Date 객체 실습</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+      button {
+        margin: 5px 0;
+        padding: 5px 10px;
+      }
+      .output {
+        margin: 5px 0 15px 0;
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>자바스크립트 Date 객체 실습</h1>
+
+    <!-- 1. 현재 연도 출력 -->
+    <button onclick="showYear()">1. 현재 연도 출력</button>
+    <div class="output" id="output1"></div>
+
+    <!-- 2. 오늘 요일 출력 -->
+    <button onclick="showDay()">2. 오늘 요일 출력</button>
+    <div class="output" id="output2"></div>
+
+    <!-- 3. 현재 시간 출력 -->
+    <button onclick="showTime()">3. 현재 시간 출력</button>
+    <div class="output" id="output3"></div>
+
+    <!-- 4. 생일까지 남은 일수 -->
+    <button onclick="daysToBirthday()">4. 생일까지 남은 일수</button>
+    <div class="output" id="output4"></div>
+
+    <!-- 5. 하루 후, 일주일 후 -->
+    <button onclick="futureDates()">5. 하루 후, 일주일 후 날짜</button>
+    <div class="output" id="output5"></div>
+
+    <!-- 6. 날짜 비교 -->
+    <button onclick="compareDates()">6. 날짜 비교</button>
+    <div class="output" id="output6"></div>
+
+    <!-- 7. 월의 마지막 날 -->
+    <button onclick="lastDayOfMonth()">7. 현재 달 마지막 날</button>
+    <div class="output" id="output7"></div>
+
+    <!-- 8. 이번 달 첫 번째 금요일 -->
+    <button onclick="firstFriday()">8. 이번 달 첫 번째 금요일</button>
+    <div class="output" id="output8"></div>
+
+    <!-- 9. 오후 6시까지 남은 시간 -->
+    <button onclick="timeUntil6PM()">9. 오후 6시까지 남은 시간</button>
+    <div class="output" id="output9"></div>
+
+    <!-- 10. 요일에 따른 메시지 -->
+    <button onclick="weekdayMessage()">10. 요일에 따른 메시지</button>
+    <div class="output" id="output10"></div>
+
+    <script>
+      // 1. 현재 연도 출력
+      function showYear() {
+        const now = new Date();
+        document.getElementById(
+          'output1'
+        ).innerText = `올해는 ${now.getFullYear()}년입니다.`;
+      }
+
+      // 2. 오늘 요일 출력
+      function showDay() {
+        const now = new Date();
+        const days = ['일', '월', '화', '수', '목', '금', '토'];
+        document.getElementById('output2').innerText = `오늘은 ${
+          days[now.getDay()]
+        }요일입니다.`;
+      }
+
+      // 3. 현재 시간 출력
+      function showTime() {
+        const now = new Date();
+        const time = `${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;
+        document.getElementById('output3').innerText = `현재 시간: ${time}`;
+      }
+
+      // 4. 생일까지 남은 일수
+      function daysToBirthday() {
+        const now = new Date();
+        const birthday = new Date(now.getFullYear(), 11, 25); // 예: 12월 25일
+        if (now > birthday) birthday.setFullYear(now.getFullYear() + 1);
+        const diff = Math.ceil((birthday - now) / (1000 * 60 * 60 * 24));
+        document.getElementById(
+          'output4'
+        ).innerText = `생일까지 ${diff}일 남았습니다.`;
+      }
+
+      // 5. 하루 후, 일주일 후
+      function futureDates() {
+        const now = new Date();
+        const oneDay = new Date(now);
+        oneDay.setDate(now.getDate() + 1);
+        const oneWeek = new Date(now);
+        oneWeek.setDate(now.getDate() + 7);
+        document.getElementById(
+          'output5'
+        ).innerText = `하루 후: ${oneDay.toLocaleDateString()}, 일주일 후: ${oneWeek.toLocaleDateString()}`;
+      }
+
+      // 6. 날짜 비교
+      function compareDates() {
+        const date1 = new Date('2025-09-23');
+        const date2 = new Date('2025-12-25');
+        const later = date1 > date2 ? date1 : date2;
+        document.getElementById(
+          'output6'
+        ).innerText = `더 미래 날짜는 ${later.toLocaleDateString()}입니다.`;
+      }
+
+      // 7. 월의 마지막 날
+      function lastDayOfMonth() {
+        const now = new Date();
+        const lastDay = new Date(
+          now.getFullYear(),
+          now.getMonth() + 1,
+          0
+        ).getDate();
+        document.getElementById('output7').innerText = `${
+          now.getMonth() + 1
+        }월의 마지막 날은 ${lastDay}일입니다.`;
+      }
+
+      // 8. 이번 달 첫 번째 금요일
+      function firstFriday() {
+        const now = new Date();
+        const firstDay = new Date(now.getFullYear(), now.getMonth(), 1);
+        let date = firstDay.getDate();
+        while (firstDay.getDay() !== 5) {
+          firstDay.setDate(++date);
+        }
+        document.getElementById(
+          'output8'
+        ).innerText = `이번 달 첫 번째 금요일은 ${firstDay.toLocaleDateString()}입니다.`;
+      }
+
+      // 9. 오후 6시까지 남은 시간
+      function timeUntil6PM() {
+        const now = new Date();
+        const sixPM = new Date();
+        sixPM.setHours(18, 0, 0, 0);
+        let diff = sixPM - now;
+        if (diff < 0) diff = 0;
+        const hours = Math.floor(diff / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        document.getElementById(
+          'output9'
+        ).innerText = `오후 6시까지 ${hours}시간 ${minutes}분 ${seconds}초 남았습니다.`;
+      }
+
+      // 10. 요일에 따른 메시지
+      function weekdayMessage() {
+        const now = new Date();
+        const day = now.getDay();
+        const message =
+          day === 0 || day === 6 ? '주말이에요!' : '열심히 일하는 날!';
+        document.getElementById('output10').innerText = message;
+      }
+    </script>
+  </body>
+</html>

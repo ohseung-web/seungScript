@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>date</title>
+  </head>
+  <body>
+    <script>
+      // 생성자 함수란 기본으로 생성되는 함수라는 의미이다.
+      const today = new Date();
+      console.log(`오늘날짜: ${today}`);
+
+      const date1 = new Date(86400000);
+      //  86,400,000 => 1day를 의미한다.
+      //  1s => 1,000ms
+      //  1m = 60s * 1,000ms => 60,000ms
+      //  1h = 60m * 60,000ms  = 3,600,000ms
+      //  1d = 24h * 3,600,000ms = 86,400,000ms
+      console.log(date1);
+
+      // 인수로 날짜와 시간을 나타내는 문자열을 전달하면
+      // 지정된 날짜와 시간을 가지는 인스턴스를 반환한다
+      let date = new Date('September 08,2023 14:50:00');
+      console.log(date);
+      date = new Date('2023/09/08/14:50:00');
+      console.log(date);
+
+      // New Date( year, month[, day, hour, minute, second, millisecond] )
+      // 월을 나타내는 8는 9월을 의미한다.
+      // 2023/9/1/00:00:00
+      let date2 = new Date(2023, 8);
+      console.log(date2);
+
+      // 월을 나타내는 8는 9월을 의미한다.
+      // 2023/9/8/15:04:00:00
+      date2 = new Date(2023, 8, 8, 15, 4, 0, 0);
+      console.log(date2);
+      // 가독성이 훨씬 좋다.
+      date2 = new Date('2023/9/08/15:04:00:00');
+      console.log(date2);
+
+      // ----------------------------------------------------------------------------
+      // Date 생성자를  new  연산자 없이 호출
+      // Date 생성자 함수를 new 연산자없이 호출하면
+      // 인스턴스를 반환하지 않고 결과값을 문자열로 반환한다.
+      let today2 = Date();
+      // typeof는 데이터 타입을 확인하는 명령어이다.
+      console.log(typeof today2, today2);
+
+      // Date.now()
+      // 1970년 1월 1일 00:00:00(UTC)을 기점으로
+      // 현재 시간까지 경과한 밀리초를 숫자로 반환한다.
+      let now = Date.now();
+      console.log(now / 86400000 / 365);
+      //  now => 1,694,153,925,531
+      // 19608.264520671295 일 // 55년 => 1970+55 : 2025년
+
+      // Date.pasre
+      // 1970년 1월 1일 00:00:00(UTC)을 기점으로 인수로
+      // 전달된 지정 시간(new Date(dateString)의 인수와 동일한 형식)까지의
+      // 밀리초를 숫자로 반환한다.
+      let d = Date.parse('Jan 2, 1970 00:00:00 UTC'); // UTC
+      console.log(d); // 86400000
+      // +9시간
+      d = Date.parse('Jan 2, 1970 09:00:00'); // KST
+      console.log(d); // 86400000
+      d = Date.parse('1970/01/02/09:00:00'); // KST
+      console.log(d); // 86400000
+
+      // Date.prototype.getFullYear
+      // 년도를 나타내는 4자리 숫자를 반환한다.
+      // 출력
+      let today3 = new Date();
+      let year = today3.getFullYear();
+      console.log('오늘날짜' + today3);
+      console.log('오늘날짜의 년도' + year);
+
+      // Date.prototype.setFullYear
+      // 세팅
+      // 년도를 나타내는 4자리 숫자를 설정한다.
+      // 년도 이외 월, 일도 설정할 수 있다.
+      // dateObj.setFullYear(year[, month[, day]])
+
+      const today4 = new Date();
+      // 년도 지정
+      today4.setFullYear(2000);
+      let year2 = today4.getFullYear();
+      console.log(today4); // Fri Sep 08 2000 15:46:24 GMT+0900 (한국 표준시)
+      console.log(year2); // 2000
+
+      // 년도 지정
+      today4.setFullYear(1900, 0, 1);
+      year3 = today4.getFullYear();
+      console.log(today4); // Mon Jan 01 1900 17:42:40 GMT+0827 (한국 표준시)
+      console.log(year3); // 1900
+
+      // Date.prototype.getMonth
+      // 월을 나타내는 0 ~ 11의 정수를 반환한다.
+      // 1월은 0, 12월은 11이다.
+      const today5 = new Date();
+      const month5 = today5.getMonth();
+      console.log(today5, month5);
+
+      // Date.prototype.setMonth
+      // 월을 나타내는 0 ~ 11의 정수를 설정한다.
+      // 1월은 0, 12월은 11이다. 월 이외 일도 설정할 수 있다.
+      // dateObj.setMonth(month[, day])
+      const today6 = new Date();
+
+      //월을 지정
+      today6.setMonth(0);
+
+      let month6 = today6.getMonth();
+      console.log(today6);
+      console.log(month6);
+      //월, 일 지정
+      today6.setMonth(11, 1);
+      month7 = today6.getMonth();
+      console.log(today6);
+      console.log(month7);
+
+      // Date.prototype.getDate
+      // 날짜(1 ~ 31)를 나타내는 정수를 반환한다.
+      let today8 = new Date();
+      let date8 = today8.getDate();
+      console.log(today8, date8);
+
+      // Date.prototype.setDate
+      // 날짜(1 ~ 31)를 나타내는 정수를 설정한다.
+      let today9 = new Date();
+      // 날짜 지정
+      today9.setDate(1);
+      let date9 = today9.getDate();
+      console.log(today9, date9);
+
+      // Date.prototype.getDay
+      // 요일(0 ~ 6)를 나타내는 정수를 반환한다. 
+      let today10 = new Date()
+      let day = today10.getDay();
+      console.log(today10,day);
+    </script>
+  </body>
+</html>

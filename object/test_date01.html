@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>날짜 연습문제</title>
+    <style>
+      button{
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Date 실습 예제</h1>
+    <div>
+      <button onclick="ex1()">1. 오늘 날짜 출력</button>
+      <button onclick="ex2()">2. 1일 후 날짜 계산</button>
+      <button onclick="ex3()">3. 문자열로 날짜 생성</button>
+      <button onclick="ex4()">4. 다른 문자열 형식 날짜 생성</button>
+      <button onclick="ex5()">5. 년, 월 지정 날짜 생성</button>
+      <button onclick="ex6()">6. 년, 월, 일, 시, 분, 초 지정</button>
+      <button onclick="ex7()">7. new 없이 Date 호출</button>
+      <button onclick="ex8()">8. Date.now()</button>
+      <button onclick="ex9()">9. Date.parse()</button>
+      <button onclick="ex10()">10. getFullYear / setFullYear</button>
+      <button onclick="ex11()">11. getMonth / setMonth</button>
+      <button onclick="ex12()">12. getDate / setDate</button>
+      <button onclick="ex13()">13. getDay</button>
+      <button onclick="ex14()">14. 하루 더하기</button>
+      <button onclick="ex15()">15. 특정 날짜 차이 계산</button>
+    </div>
+    <p id="output"></p>
+    <script>
+      const out = document.getElementById('output');
+
+      function ex1() {
+        const today = new Date();
+        out.textContent = `오늘 날짜: ${today}`;
+      }
+
+      function ex2() {
+        const oneDay = 86400000;
+        const date = new Date(oneDay);
+        out.textContent = `1970년 1월 2일 UTC: ${date}`;
+      }
+
+      function ex3() {
+        const dateStr = new Date('September 08, 2023 14:50:00');
+        out.textContent = dateStr;
+      }
+
+      function ex4() {
+        const dateStr2 = new Date('2023/09/08/14:50:00');
+        out.textContent = dateStr2;
+      }
+
+      function ex5() {
+        const dateObj = new Date(2023, 8);
+        out.textContent = dateObj;
+      }
+
+      function ex6() {
+        const dateObj = new Date(2023, 8, 8, 15, 4, 0, 0);
+        out.textContent = dateObj;
+      }
+
+      function ex7() {
+        const nowStr = Date();
+        out.textContent = `타입: ${typeof nowStr}\n값: ${nowStr}`;
+      }
+
+      function ex8() {
+        const nowMs = Date.now();
+        out.textContent = `1970년 이후 밀리초: ${nowMs}`;
+      }
+
+      function ex9() {
+        const ms = Date.parse('Jan 2, 1970 00:00:00 UTC');
+        out.textContent = `UTC 기준 밀리초: ${ms}`;
+      }
+
+      function ex10() {
+        let d = new Date();
+        const before = d.getFullYear();
+        d.setFullYear(2000);
+        const after = d.getFullYear();
+        out.textContent = `현재 년도: ${before}\n년도 변경: ${after}`;
+      }
+
+      function ex11() {
+        let d = new Date();
+        const before = d.getMonth();
+        d.setMonth(11);
+        const after = d.getMonth();
+        out.textContent = `현재 월: ${before}\n월 변경: ${after}`;
+      }
+
+      function ex12() {
+        let d = new Date();
+        const before = d.getDate();
+        d.setDate(1);
+        const after = d.getDate();
+        out.textContent = `오늘 날짜: ${before}\n날짜 변경: ${after}`;
+      }
+
+      function ex13() {
+        let d = new Date();
+        const day = d.getDay();
+        out.textContent = `오늘 요일 (0=일요일): ${day}`;
+      }
+
+      function ex14() {
+        const today = new Date();
+        const tomorrow = new Date(today.getTime() + 86400000);
+        out.textContent = `내일 날짜: ${tomorrow}`;
+      }
+
+      function ex15() {
+        const start = new Date('2023/01/01');
+        const end = new Date();
+        const diff = end - start;
+        const days = Math.floor(diff / 86400000);
+        out.textContent = `2023년 이후 지난 일 수: ${days}`;
+      }
+    </script>
+  </body>
+</html>

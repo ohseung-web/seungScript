@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>forEach</title>
+  </head>
+  <body>
+    <h2>다중 map() 실습</h2>
+    <pre id="output"></pre>
+
+    <script>
+      // 즉, map() 안에서 한 줄 표현식이면 return을 생략해도 돼요.
+      // let doubled = arr.map(x => x * 2);  // return 없이 가능
+      let out = document.getElementById('output');
+
+      let scores = [
+        [70, 80, 90], // 학생1
+        [88, 76, 92], // 학생2
+        [90, 85, 87], // 학생3
+      ];
+
+      // 다중 map() 사용
+      let newScores = scores.map((row) => row.map((score) => score + 10));
+
+      let newScores2 = scores.map(function (row) {
+        return row.map(function (score) {
+          return score + 10;
+        });
+      });
+
+      out.innerHTML += newScores2 + '<br/>';
+      // out.innerHTML += '10점 추가 후:<br/>' + JSON.stringify(newScores);
+    </script>
+  </body>
+</html>

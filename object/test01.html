@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>코어객체</title>
+  </head>
+  <body>
+    <div id="box">
+      <style>
+        #source {
+          color: blue;
+        }
+      </style>
+      <p>Hi there!</p>
+      <span style="display: none">hidden message</span>
+    </div>
+
+    <script>
+      // Object: 객체 생성
+      let obj = new Object();
+      obj.name = '길동';
+      console.log(obj.name); // "길동"
+
+      // Array: 배열 사용
+      let arr = [1, 2, 3];
+      console.log(arr.length); // 3
+
+      // String: 문자열 처리
+      let str = 'Hello, JS!';
+      console.log(str.toUpperCase()); // "HELLO, JS!"
+
+      // Math: 수학 함수
+      console.log(Math.random()); // 0~1 사이 랜덤 숫자
+
+      let box = document.querySelector('#box');
+      console.log('textContent : ' + box.textContent);
+      console.log('innerText : ' + box.innerText);
+    </script>
+  </body>
+</html>

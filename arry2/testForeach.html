@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>forEach</title>
+  </head>
+  <body>
+    <h2>forEach & map 연습</h2>
+    <p id="output"></p>
+    <script>
+      let out = document.getElementById('output');
+
+      // 문제 1: 이름 출력
+      let result = '';
+      let students = ['철수', '영희', '민수', '지민'];
+      out.innerHTML += '문제1 결과:<br/>';
+      students.forEach((name, index) => {
+        // result += value + ' ';
+        result += name + ' ';
+      });
+      // students.forEach(function (name) {
+      //   result += name + '<br/>';
+      // });
+      out.innerHTML = result + '<br/>';
+
+      // 문제 2: 홀수만 출력
+      let numbers = [1, 2, 3, 4, 5, 6, 7];
+      out.innerHTML += '문제2 결과 (홀수만):<br/>';
+      numbers.forEach(function (num) {
+        if (num % 2 !== 0) {
+          out.innerHTML += num + '<br/>';
+        }
+      });
+      out.innerHTML += '<br/>';
+
+      // 문제 3: 단어 대문자 변환
+      let words = ['apple', 'banana', 'grape'];
+      let upperWords = words.map((value) => {
+        return value.toUpperCase();
+      });
+      // let upperWords = words.map(function (word) {
+      //   return word.toUpperCase();
+      // });
+      out.innerHTML +=
+        '문제3 결과 (대문자 변환):<br/>' + upperWords.join(', ') + '<br/>';
+
+      // 문제 4: 숫자 2배 배열
+      let nums = [10, 20, 30, 40];
+      let doubled = nums.map(function (n) {
+        return n * 2;
+      });
+      out.innerHTML += '문제4 결과 (2배):<br/>' + doubled.join(', ') + '<br/>';
+
+      // 문제 5: 이름 앞에 '학생:' 붙이기
+      let names = ['철수', '영희', '민수'];
+      let studentNames = names.map(function (n) {
+        return '학생: ' + n;
+      });
+      out.innerHTML +=
+        '문제5 결과 (학생명단):<br/>' + studentNames.join(', ') + '<br/>';
+    </script>
+  </body>
+</html>
