@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Date 연습문제</title>
+  </head>
+  <body>
+    <script>
+      //6. 날짜 비교
+      let date1 = new Date('2025-09-23');
+      let date2 = new Date('2025-12-25');
+
+      if (date1 > date2) {
+        console.log('더 미래 날짜:', date1.toLocaleDateString());
+      } else {
+        console.log('더 미래 날짜:', date2.toLocaleDateString());
+      }
+
+      // 7. 월의 마지막 날 구하기
+      let today = new Date();
+      let year = today.getFullYear();
+      let month = today.getMonth(); // 0~11
+
+      let lastDate = new Date(year, month + 1, 0); // 다음 달 0일 → 이번 달 마지막 날
+      console.log(
+        `${month + 1}월의 마지막 날은 ${lastDate.getDate()}일입니다.`
+      );
+
+      //8. 특정 요일 찾기 (이번 달 첫 번째 금요일)
+      let firstDay = new Date(year, month, 1);
+      let firstWeekday = firstDay.getDay(); // 0:일 ~ 6:토
+      let firstFriday;
+
+      // 금요일은 5
+      if (firstWeekday <= 5) {
+        firstFriday = 1 + (5 - firstWeekday);
+      } else {
+        firstFriday = 1 + (7 - firstWeekday) + 5;
+      }
+
+      console.log('이번 달 첫 번째 금요일은', firstFriday, '일입니다.');
+
+      // 9. 시간 차 계산 (현재 시간과 오후 6시)
+      let now = new Date();
+      let target = new Date();
+      target.setHours(18, 0, 0, 0); // 오늘 오후 6시
+
+      let diff = target - now; // 밀리초
+      if (diff < 0) diff = 0; // 이미 6시 이후면 0
+
+      let hours = Math.floor(diff / 1000 / 60 / 60);
+      let minutes = Math.floor((diff / 1000 / 60) % 60);
+      let seconds = Math.floor((diff / 1000) % 60);
+
+      console.log(
+        `오후 6시까지 남은 시간: ${hours}시 ${minutes}분 ${seconds}초`
+      );
+
+      // 10. 요일에 따라 메시지 출력
+      let day = today.getDay(); // 0:일 ~ 6:토
+
+      if (day === 0 || day === 6) {
+        console.log('주말이에요!');
+      } else {
+        console.log('열심히 일하는 날!');
+      }
+    </script>
+  </body>
+</html>

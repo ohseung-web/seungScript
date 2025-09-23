@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>String + Math 실습문제</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+      }
+      h1 {
+        color: darkblue;
+      }
+      .question {
+        margin-bottom: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+      }
+      button {
+        margin-top: 8px;
+        padding: 5px 10px;
+      }
+      pre {
+        background: #f9f9f9;
+        padding: 10px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>String + Math 실습문제 5개</h1>
+
+    <div class="question">
+      <h2>1. 랜덤 이름 뽑기</h2>
+      <button onclick="randomName()">정답 보기</button>
+      <pre id="q1"></pre>
+    </div>
+
+    <div class="question">
+      <h2>2. 랜덤 문자열 추출</h2>
+      <button onclick="randomChar()">정답 보기</button>
+      <pre id="q2"></pre>
+    </div>
+
+    <div class="question">
+      <h2>3. 단어 길이 비교하기</h2>
+      <button onclick="compareWords()">정답 보기</button>
+      <pre id="q3"></pre>
+    </div>
+
+    <div class="question">
+      <h2>4. 랜덤 비밀번호 생성기 (5글자)</h2>
+      <button onclick="randomPassword()">정답 보기</button>
+      <pre id="q4"></pre>
+    </div>
+
+    <div class="question">
+      <h2>5. 문자열 공백 제거 후 길이 출력</h2>
+      <button onclick="trimString()">정답 보기</button>
+      <pre id="q5"></pre>
+    </div>
+
+    <script>
+      // 1. 랜덤 이름 뽑기
+      function randomName() {
+        let names = ['철수', '영희', '민수', '지영', '수현'];
+        let idx = Math.floor(Math.random() * names.length);
+        document.getElementById('q1').textContent = '뽑힌 이름: ' + names[idx];
+      }
+
+      // 2. 랜덤 문자열 추출
+      function randomChar() {
+        let str = 'JavaScript';
+        let idx = Math.floor(Math.random() * str.length);
+        document.getElementById('q2').textContent =
+          '뽑힌 글자: ' + str.charAt(idx);
+      }
+
+      // 3. 단어 길이 비교
+      function compareWords() {
+        let word1 = 'apple';
+        let word2 = 'watermelon';
+        let longer = word1.length > word2.length ? word1 : word2;
+        document.getElementById('q3').textContent =
+          '더 긴 단어: ' + longer + ' (길이: ' + longer.length + ')';
+      }
+
+      // 4. 랜덤 비밀번호 생성기
+      function randomPassword() {
+        let chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        let pw = '';
+        for (let i = 0; i < 5; i++) {
+          let idx = Math.floor(Math.random() * chars.length);
+          pw += chars.charAt(idx);
+        }
+        document.getElementById('q4').textContent = '생성된 비밀번호: ' + pw;
+      }
+
+      // 5. 문자열 공백 제거 후 길이 출력
+      function trimString() {
+        let str = '   Hello JavaScript   ';
+        let trimmed = str.trim();
+        document.getElementById('q5').textContent =
+          '공백 제거 후: [' + trimmed + '], 길이: ' + trimmed.length;
+      }
+    </script>
+  </body>
+</html>

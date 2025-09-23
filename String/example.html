@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>String 객체 기초 연습</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+      }
+      h2 {
+        color: darkblue;
+      }
+      .question {
+        margin-bottom: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+      }
+      pre {
+        background: #f9f9f9;
+        padding: 10px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>String 객체 기초 연습 10문제</h1>
+
+    <div class="question">
+      <h2>1. 문자열 길이 구하기</h2>
+      <pre id="q1"></pre>
+    </div>
+
+    <div class="question">
+      <h2>2. 대소문자 변환</h2>
+      <pre id="q2"></pre>
+    </div>
+
+    <div class="question">
+      <h2>3. 특정 문자 가져오기</h2>
+      <pre id="q3"></pre>
+    </div>
+
+    <div class="question">
+      <h2>4. 부분 문자열 추출</h2>
+      <pre id="q4"></pre>
+    </div>
+
+    <div class="question">
+      <h2>5. 문자 위치 찾기</h2>
+      <pre id="q5"></pre>
+    </div>
+
+    <div class="question">
+      <h2>6. 포함 여부 확인</h2>
+      <pre id="q6"></pre>
+    </div>
+
+    <div class="question">
+      <h2>7. 문자열 교체하기</h2>
+      <pre id="q7"></pre>
+    </div>
+
+    <div class="question">
+      <h2>8. 앞뒤 공백 제거</h2>
+      <pre id="q8"></pre>
+    </div>
+
+    <div class="question">
+      <h2>9. 문자열 나누기</h2>
+      <pre id="q9"></pre>
+    </div>
+
+    <div class="question">
+      <h2>10. 문자열 이어붙이기</h2>
+      <pre id="q10"></pre>
+    </div>
+
+    <script>
+      // 1. 문자열 길이
+      let str1 = 'Hello JavaScript';
+      document.getElementById('q1').textContent =
+        str1 + ' → 길이: ' + str1.length;
+
+      // 2. 대소문자 변환
+      let lower = 'javascript';
+      let upper = 'HELLO';
+      document.getElementById('q2').textContent =
+        lower.toUpperCase() + ' / ' + upper.toLowerCase();
+
+      // 3. 특정 문자 가져오기
+      let str3 = 'Hello';
+      document.getElementById('q3').textContent =
+        '첫 글자: ' + str3.charAt(0) + ', 세 번째 글자: ' + str3[2];
+
+      // 4. 부분 문자열 추출
+      let str4 = 'JavaScript';
+      document.getElementById('q4').textContent = str4.substring(4); // Script
+
+      // 5. 문자 위치 찾기
+      let str5 = 'I like JavaScript';
+      document.getElementById('q5').textContent =
+        "'Java' 위치: " + str5.indexOf('Java');
+
+      // 6. 포함 여부 확인
+      let str6 = 'Programming is fun';
+      document.getElementById('q6').textContent =
+        'fun 포함? ' + str6.includes('fun');
+
+      // 7. 문자열 교체
+      let str7 = 'I like Java';
+      document.getElementById('q7').textContent = str7.replace(
+        'Java',
+        'JavaScript'
+      );
+
+      // 8. 앞뒤 공백 제거
+      let str8 = '   Hello World   ';
+      document.getElementById('q8').textContent = '[' + str8.trim() + ']';
+
+      // 9. 문자열 나누기
+      let str9 = 'apple,banana,grape';
+      document.getElementById('q9').textContent = str9.split(',');
+
+      // 10. 문자열 이어붙이기
+      let hello = 'Hello';
+      let world = 'World';
+      document.getElementById('q10').textContent = hello + ' ' + world;
+    </script>
+  </body>
+</html>

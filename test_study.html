@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>자바스크립트 기초 로직 연습</title>
+  </head>
+  <body>
+    <h1>자바스크립트 기초 로직 연습 문제</h1>
+    <p>브라우저 콘솔(F12 → Console)에서 결과 확인</p>
+
+    <script>
+      // ---------------------
+      // 1. 1~50 사이 숫자 중 4의 배수만 더한 합
+      let sum1 = 0;
+      for (let i = 1; i <= 50; i++) {
+        if (i % 4 === 0) sum1 += i;
+      }
+      console.log('문제1:', sum1);
+
+      // ---------------------
+      // 2. 입력받은 숫자 n의 약수 출력
+      let n2 = 12;
+      let divisors = [];
+      for (let i = 1; i <= n2; i++) {
+        if (n2 % i === 0) divisors.push(i);
+      }
+      console.log('문제2:', divisors);
+
+      // ---------------------
+      // 3. 1~100 사이 모든 짝수 합과 홀수 합
+      let evenSum = 0,
+        oddSum = 0;
+      for (let i = 1; i <= 100; i++) {
+        if (i % 2 === 0) evenSum += i;
+        else oddSum += i;
+      }
+      console.log('문제3: 짝수합', evenSum, ', 홀수합', oddSum);
+
+      // ---------------------
+      // 4. 1~n 사이에서 7의 배수 개수 세기
+      let n4 = 50;
+      let count7 = 0;
+      for (let i = 1; i <= n4; i++) {
+        if (i % 7 === 0) count7++;
+      }
+      console.log('문제4:', count7);
+
+      // ---------------------
+      // 5. 숫자 소수 판별
+      let n5 = 29;
+      let isPrime = true;
+      if (n5 < 2) isPrime = false;
+      for (let i = 2; i <= Math.sqrt(n5); i++) {
+        if (n5 % i === 0) {
+          isPrime = false;
+          break;
+        }
+      }
+      console.log('문제5:', isPrime ? '소수' : '소수 아님');
+
+      // ---------------------
+      // 6. 숫자 뒤집기
+      let n6 = 12345;
+      let rev6 = 0,
+        temp = n6;
+      while (temp > 0) {
+        rev6 = rev6 * 10 + (temp % 10);
+        temp = Math.floor(temp / 10);
+      }
+      console.log('문제6:', rev6);
+
+      // ---------------------
+      // 7. 1~n 사이 3 또는 5의 배수 합
+      let n7 = 30;
+      let sum7 = 0;
+      for (let i = 1; i <= n7; i++) {
+        if (i % 3 === 0 || i % 5 === 0) sum7 += i;
+      }
+      console.log('문제7:', sum7);
+
+      // ---------------------
+      // 8. 별 피라미드
+      let n8 = 5;
+      console.log('문제8:');
+      for (let i = 1; i <= n8; i++) {
+        console.log(' '.repeat(n8 - i) + '*'.repeat(2 * i - 1));
+      }
+
+      // ---------------------
+      // 9. 배열 짝수만 새로운 배열
+      let arr9 = [1, 2, 3, 4, 5, 6];
+      let evenArr9 = [];
+      for (let i = 0; i < arr9.length; i++) {
+        if (arr9[i] % 2 === 0) evenArr9.push(arr9[i]);
+      }
+      console.log('문제9:', evenArr9);
+
+      // ---------------------
+      // 10. 문자열 모음 개수 세기
+      let str10 = 'Hello World';
+      let vowels = 'aeiouAEIOU';
+      let count10 = 0;
+      for (let i = 0; i < str10.length; i++) {
+        if (vowels.includes(str10[i])) count10++;
+      }
+      console.log('문제10:', count10);
+
+      // ---------------------
+      // 11. 1~n 사이 4의 배수는 "Four", 나머지는 숫자 출력
+      let n11 = 15;
+      console.log('문제11:');
+      for (let i = 1; i <= n11; i++) {
+        console.log(i % 4 === 0 ? 'Four' : i);
+      }
+
+      // ---------------------
+      // 12. 두 숫자 사이 모든 수 출력
+      let a12 = 5,
+        b12 = 9;
+      console.log('문제12:');
+      for (let i = Math.min(a12, b12); i <= Math.max(a12, b12); i++) {
+        console.log(i);
+      }
+
+      // ---------------------
+      // 13. 배열 제곱값 새로운 배열
+      let arr13 = [1, 2, 3, 4];
+      let sqArr = [];
+      for (let i = 0; i < arr13.length; i++) {
+        sqArr.push(arr13[i] ** 2);
+      }
+      console.log('문제13:', sqArr);
+
+      // ---------------------
+      // 14. 구구단에서 짝수 단만 출력
+      console.log('문제14:');
+      for (let i = 2; i <= 9; i += 2) {
+        for (let j = 1; j <= 9; j++) {
+          console.log(`${i}x${j}=${i * j}`);
+        }
+      }
+
+      // ---------------------
+      // 15. 삼각수 출력
+      let n15 = 5;
+      console.log('문제15:');
+      let tri = 0;
+      for (let i = 1; i <= n15; i++) {
+        tri += i;
+        console.log(tri);
+      }
+
+      // ---------------------
+      // 16. 1~50 FizzBuzz 변형
+      console.log('문제16:');
+      for (let i = 1; i <= 50; i++) {
+        if (i % 15 === 0) console.log('TriPenta');
+        else if (i % 3 === 0) console.log('Tri');
+        else if (i % 5 === 0) console.log('Penta');
+        else console.log(i);
+      }
+
+      // ---------------------
+      // 17. 1~n 짝수+1, 홀수-1 변환 출력
+      let n17 = 10;
+      console.log('문제17:');
+      for (let i = 1; i <= n17; i++) {
+        console.log(i % 2 === 0 ? i + 1 : i - 1);
+      }
+
+      // ---------------------
+      // 18. 배열 최대값과 두 번째 큰 값
+      let arr18 = [5, 3, 9, 7, 2];
+      let max1 = -Infinity,
+        max2 = -Infinity;
+      for (let i = 0; i < arr18.length; i++) {
+        if (arr18[i] > max1) {
+          max2 = max1;
+          max1 = arr18[i];
+        } else if (arr18[i] > max2) {
+          max2 = arr18[i];
+        }
+      }
+      console.log('문제18: 최대값', max1, ', 두번째 최대값', max2);
+
+      // ---------------------
+      // 19. 팩토리얼 범위 내 확인
+      let n19 = 24;
+      let fact = 1,
+        i = 1,
+        found = false;
+      while (fact <= n19) {
+        if (fact === n19) {
+          found = true;
+          break;
+        }
+        i++;
+        fact *= i;
+      }
+      console.log('문제19:', found ? '팩토리얼 존재' : '없음');
+
+      // ---------------------
+      // 20. 1~n 숫자 "*" 시각화
+      let n20 = 5;
+      console.log('문제20:');
+      for (let i = 1; i <= n20; i++) {
+        console.log('*'.repeat(i));
+      }
+    </script>
+  </body>
+</html>
