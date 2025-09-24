@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>장바구니 실습</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background: #f9f9f9;
+      }
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+      .cart {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      .item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+        margin: 10px 0;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      }
+      .item-info {
+        flex-grow: 1;
+      }
+      .item-info h3 {
+        margin: 0 0 5px;
+        color: #0077cc;
+      }
+      .item-info p {
+        margin: 0;
+        font-size: 14px;
+        color: #555;
+      }
+      .buttons button {
+        margin: 0 3px;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+      }
+      .plus {
+        background: #4caf50;
+        color: white;
+      }
+      .minus {
+        background: #ff9800;
+        color: white;
+      }
+      .delete {
+        background: #f44336;
+        color: white;
+      }
+      .total {
+        margin-top: 20px;
+        padding: 15px;
+        background: #0077cc;
+        color: white;
+        text-align: center;
+        border-radius: 10px;
+        font-size: 18px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🛒 장바구니</h1>
+    <div class="cart" id="cart"></div>
+    <div class="total" id="total"></div>
+
+    <script>
+      // 장바구니 초기 데이터
+      let cart = [
+        { name: '노트북', price: 1000000, quantity: 1 },
+        { name: '마우스', price: 20000, quantity: 2 },
+        { name: '키보드', price: 50000, quantity: 1 },
+      ];
+
+      // 장바구니 출력 함수
+      function renderCart() {
+        let cartDiv = document.getElementById('cart');
+        cartDiv.innerHTML = ''; // 초기화
+        let total = 0;
+
+        cart.forEach((item, index) => {
+          let itemTotal = item.price * item.quantity;
+          total += itemTotal;
+
+          let itemDiv = document.createElement('div');
+          itemDiv.className = 'item';
+          itemDiv.innerHTML = `
+          <div class="item-info">
+            <h3>${item.name}</h3>
+            <p>가격: ${item.price.toLocaleString('ko-KR')}원</p>
+            <p>수량: ${item.quantity}개</p>
+            <p>합계: ${itemTotal.toLocaleString('ko-KR')}원</p>
+          </div>
+          <div class="buttons">
+            <button class="plus">+</button>
+            <button class="minus">-</button>
+            <button class="delete">x</button>
+          </div>
+        `;
+
+          // 버튼 이벤트
+          itemDiv.querySelector('.plus').addEventListener('click', () => {
+            item.quantity++;
+            renderCart();
+          });
+          itemDiv.querySelector('.minus').addEventListener('click', () => {
+            if (item.quantity > 1) item.quantity--;
+            renderCart();
+          });
+          itemDiv.querySelector('.delete').addEventListener('click', () => {
+            cart.splice(index, 1);
+            renderCart();
+          });
+
+          cartDiv.appendChild(itemDiv);
+        });
+
+        // 총 금액 출력
+        document.getElementById(
+          'total'
+        ).textContent = `총 금액: ${total.toLocaleString('ko-KR')}원`;
+      }
+
+      // 처음 실행
+      renderCart();
+    </script>
+  </body>
+</html>

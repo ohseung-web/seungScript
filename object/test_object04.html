@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Object 연습문제</title>
+  </head>
+  <body>
+    <h1>Object + Array 실습문제</h1>
+
+    <h2>1. 학생 성적 관리 프로그램</h2>
+    <div class="result" id="q1"></div>
+    <div class="result" id="q2"></div>
+
+    <script>
+      // 1. 학생 성적 관리 프로그램
+      let students = [
+        { name: '홍길동', scores: { kor: 90, eng: 80, math: 85 } },
+        { name: '성춘향', scores: { kor: 95, eng: 88, math: 92 } },
+        { name: '이몽룡', scores: { kor: 70, eng: 75, math: 80 } },
+      ];
+      let students02 = [
+        { name: '홍길동', kor: 90, eng: 80, math: 85 },
+        { name: '성춘향', kor: 95, eng: 88, math: 92 },
+        { name: '이몽룡', kor: 70, eng: 75, math: 80 },
+      ];
+
+      let output2 = '';
+      for (let i = 0; i < students02.length; i++) {
+        let avg02 = (students02.kor + students02.eng + students02.math) / 3;
+        output2 += `${students02.name}의 평균 점수: ${avg02.toFixed(2)}<br>`;
+      }
+      document.getElementById('q2').innerHTML = output2;
+
+      let output1 = '';
+      for (let i = 0; i < students.length; i++) {
+        let s = students[i];
+        let avg = (s.scores.kor + s.scores.eng + s.scores.math) / 3;
+        output1 += `${s.name}의 평균 점수: ${avg.toFixed(2)}<br>`;
+      }
+      document.getElementById('q1').innerHTML = output1;
+    </script>
+  </body>
+</html>

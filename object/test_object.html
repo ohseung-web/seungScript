@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Object</title>
+  </head>
+  <body>
+    <script>
+      let book = {
+        title: 'JavaScript',
+        author: '홍길동',
+        page: 500,
+        price: 15000,
+      };
+
+      let book02 = new Object();
+      book.title = 'JavaScript';
+      book.author = '홍길동';
+      book.page = 500;
+      book.price = 15000;
+
+      function Book(title, author, page, price) {
+        this.title = title;
+        this.author = author;
+        this.page = page;
+        this.price = price;
+      }
+      let myBook = new Book('JavaScript', '홍길동', 500, 15000);
+
+      let student = {
+        name: '홍길동',
+        age: 20,
+        major: '컴퓨터공학',
+      };
+
+      console.log(student.name); // "홍길동"
+      console.log(student.age); // 20
+      console.log(student.major); // "컴퓨터공학"
+
+      let car = {
+        brand: 'Hyundai',
+        color: '흰색',
+        price: 2500,
+      };
+
+      car.color = '검정색';
+      car.price = 3000;
+
+      console.log(car);
+
+      let item1 = { name: '노트북', price: 1000, quantity: 1 };
+      let item2 = { name: '마우스', price: 50, quantity: 2 };
+
+      let cart = [item1, item2];
+
+      let total = 0;
+      for (let i = 0; i < cart.length; i++) {
+        total += cart[i].price * cart[i].quantity;
+      }
+
+      console.log(`장바구니 총 금액: ${total.toLocaleString('ko-KR')}`);
+
+      console.log(`장바구니 총 금액: ${total.toLocaleString('ko-KR')}`);
+      // 장바구니 총 금액: 1,250,000
+
+      console.log(
+        `장바구니 총 금액: ${new Intl.NumberFormat('ko-KR', {
+          style: 'currency',
+          currency: 'KRW',
+        }).format(total)}`
+      );
+      // 장바구니 총 금액: ₩1,250,000
+    </script>
+  </body>
+</html>
