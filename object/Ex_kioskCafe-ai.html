@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>주문 시스템</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: 'Segoe UI', sans-serif;
+      }
+
+      body {
+        background: #f5f6fa;
+        margin: 0;
+        padding: 30px;
+      }
+
+      .wrap {
+        max-width: 900px;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      h2 {
+        margin: 0 0 10px;
+        font-size: 20px;
+        color: #333;
+      }
+
+      .order_menu,
+      .order_list,
+      .order_result {
+        background: #fff;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .order_menu p {
+        color: #555;
+        margin-bottom: 20px;
+      }
+
+      .section1,
+      .section2 {
+        margin-top: 10px;
+      }
+
+      .menubox {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+      }
+
+      .menu-item {
+        background: #f9f9f9;
+        padding: 15px;
+        border-radius: 8px;
+        cursor: pointer;
+        text-align: center;
+        border: 1px solid #ddd;
+        transition: transform 0.2s, background 0.2s;
+      }
+      .menu-item:hover {
+        transform: scale(1.05);
+        background: #f0f0f0;
+      }
+      .menu-item h3 {
+        font-size: 16px;
+        margin-bottom: 5px;
+      }
+      .menu-item span {
+        display: block;
+        font-size: 14px;
+        color: #666;
+      }
+
+      .orderbox {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .order-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #f9f9f9;
+        padding: 8px 12px;
+        border-radius: 6px;
+      }
+
+      .order-item span {
+        font-size: 14px;
+      }
+
+      .order-item button {
+        border: none;
+        background: #ff4d4d;
+        color: #fff;
+        padding: 4px 8px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      .order-item button:hover {
+        background: #d93636;
+      }
+
+      .order_result {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .order_result h2 {
+        font-size: 18px;
+      }
+      .btn {
+        background: #4a90e2;
+        color: #fff;
+        padding: 10px 16px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .btn:hover {
+        background: #357ab8;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="order_menu">
+        <h2>원하시는 음료를 선택해 주세요</h2>
+        <p>Please choose the drink you want.</p>
+        <div class="section1">
+          <h2>MENU</h2>
+          <div class="menubox"></div>
+        </div>
+      </div>
+
+      <div class="order_list">
+        <div class="section2">
+          <h2>주문내역</h2>
+          <div class="orderbox"></div>
+        </div>
+      </div>
+
+      <div class="order_result">
+        <h2>총 주문금액 : <span class="pay">0원</span></h2>
+        <button class="btn">현금결제</button>
+      </div>
+    </div>
+
+    <script>
+      let menus = [
+        { id: 0, name: '아메리카노', type: 'HOT', price: 1000, quantity: 1 },
+        { id: 1, name: '아메리카노', type: 'ICE', price: 1300, quantity: 1 },
+        { id: 2, name: '바닐라라떼', type: 'HOT', price: 2500, quantity: 1 },
+        { id: 3, name: '바닐라라떼', type: 'ICE', price: 2800, quantity: 1 },
+        { id: 4, name: '연유라떼', type: 'HOT', price: 2500, quantity: 1 },
+        { id: 5, name: '연유라떼', type: 'ICE', price: 2800, quantity: 1 },
+        {
+          id: 6,
+          name: '카라멜마끼아또',
+          type: 'HOT',
+          price: 2800,
+          quantity: 1,
+        },
+        {
+          id: 7,
+          name: '카라멜마끼아또',
+          type: 'ICE',
+          price: 3000,
+          quantity: 1,
+        },
+        { id: 8, name: '카페모카', type: 'HOT', price: 3000, quantity: 1 },
+        { id: 9, name: '카페모카', type: 'ICE', price: 3300, quantity: 1 },
+        { id: 10, name: '딥카페라테', type: 'HOT', price: 3400, quantity: 1 },
+        { id: 11, name: '딥카페라테', type: 'ICE', price: 3700, quantity: 1 },
+      ];
+
+      let menubox = document.querySelector('.menubox');
+      let orderbox = document.querySelector('.orderbox');
+      let pay = document.querySelector('.pay');
+      let total = 0;
+
+      // 메뉴 생성
+      menus.forEach((menu) => {
+        let div = document.createElement('div');
+        div.className = 'menu-item';
+        div.innerHTML = `
+        <h3>${menu.name}</h3>
+        <span>${menu.type}</span>
+        <span>${menu.price.toLocaleString()}원</span>
+      `;
+        div.onclick = () => addOrder(menu);
+        menubox.appendChild(div);
+      });
+
+      // 주문 추가
+      function addOrder(menu) {
+        let li = document.createElement('div');
+        li.className = 'order-item';
+        li.innerHTML = `
+        <span>${menu.name} (${
+          menu.type
+        }) - ${menu.price.toLocaleString()}원</span>
+        <button>삭제</button>
+      `;
+        li.querySelector('button').onclick = () => {
+          li.remove();
+          total -= menu.price;
+          pay.textContent = total.toLocaleString() + '원';
+        };
+        orderbox.appendChild(li);
+
+        total += menu.price;
+        pay.textContent = total.toLocaleString() + '원';
+      }
+    </script>
+  </body>
+</html>

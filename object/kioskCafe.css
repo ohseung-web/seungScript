@@ -268,3 +268,28 @@ img {
   opacity: 1;
   visibility: visible;
 }
+
+/* 주문 상품을 너무 많이 담았을 때 스크롤바 생성 css */
+.orderbox {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  /* 스크롤 관련 속성 */
+  max-height: 500px; /* 원하는 높이 제한 */
+  /* overflow-y: auto; */
+  /* 세로 스크롤 자동 생성 */
+  padding-right: 5px; /* 스크롤 때문에 글자 잘리지 않도록 여백 */
+  overflow-y: auto; /* 세로 스크롤 허용 */
+  overflow-x: hidden; /* 가로 스크롤 차단 */
+  padding-right: 8px; /* 스크롤과 텍스트 겹치지 않도록 여백 */
+  box-sizing: border-box;
+}
+/* 스크롤바 스타일 (선택) */
+.orderbox::-webkit-scrollbar {
+  width: 6px;
+}
+.orderbox::-webkit-scrollbar-thumb {
+  background: #152b17;
+  border-radius: 3px;
+}
