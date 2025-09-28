@@ -160,9 +160,19 @@
 
       // 2. 클래스 선택자로 배경색 변경
       const boxes2 = document.getElementsByClassName('box');
-      for (let b of boxes2) {
-        b.style.backgroundColor = 'yellow'; // 답안
-      }
+      // getElementsByClassName는 배열처럼 보이지만 배열이 아니므로
+      // 배열을 생성하여 사용하여야 한다.
+      // getElementsByClassName은 배열이 아니기 때문에 그냥은 forEach를 못 씁니다.
+      Array.from(boxes2).forEach((item, i) => {
+        item.style.backgroundColor = 'green';
+      });
+      // const boxes2 = document.querySelectorAll('.box');
+      // boxes2.forEach((item, i) => {
+      //   item.style.backgroundColor = 'green';
+      // });
+      // for (let b of boxes2) {
+      //   b.style.backgroundColor = 'yellow'; // 답안
+      // }
 
       // 3. 태그 선택자로 글자색 변경
       const ps3 = document.getElementsByTagName('p');
