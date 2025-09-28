@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM 실습 - 애니메이션 햄버거 메뉴</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background: #f0f0f0;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      /* 삼지창 버튼 컨테이너 */
+      #menuBtn {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 30px;
+        cursor: pointer;
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background: transparent;
+        border: none;
+      }
+
+      /* 삼지창 라인 */
+      .bar {
+        height: 4px;
+        width: 100%;
+        background-color: #333;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+      }
+
+      /* X로 변할 때 애니메이션 */
+      #menuBtn.active .bar1 {
+        transform: rotate(45deg) translate(7px, 7px);
+      }
+      #menuBtn.active .bar2 {
+        opacity: 0;
+      }
+      #menuBtn.active .bar3 {
+        transform: rotate(-45deg) translate(7px, -7px);
+      }
+
+      /* 메뉴 스타일 */
+      #menu {
+        position: fixed;
+        top: 60px;
+        right: -220px;
+        width: 200px;
+        background: #333;
+        color: white;
+        padding: 15px;
+        border-radius: 8px;
+        transition: right 0.3s ease;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      }
+
+      #menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      #menu li {
+        margin: 10px 0;
+      }
+
+      #menu li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      /* 메뉴 활성화 */
+      #menu.active {
+        right: 20px;
+      }
+
+      /* 마우스 hover하면 나옴 */
+      /* 기존: 메뉴가 오른쪽 밖으로 숨김 */
+      #menu {
+        position: fixed;
+        top: 60px;
+        right: -220px; /* 화면 밖 */
+        width: 200px;
+        background: #333;
+        color: white;
+        padding: 15px;
+        border-radius: 8px;
+        transition: right 0.3s ease;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      }
+
+      /* hover 시 메뉴 등장 */
+      #menuBtn:hover + #menu {
+        right: 20px; /* 화면 안으로 이동 */
+      }
+
+      /* 선택적으로 버튼 애니메이션도 hover 적용 */
+      #menuBtn:hover .bar1 {
+        transform: rotate(45deg) translate(7px, 7px);
+      }
+      #menuBtn:hover .bar2 {
+        opacity: 0;
+      }
+      #menuBtn:hover .bar3 {
+        transform: rotate(-45deg) translate(7px, -7px);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>DOM 실습 - 햄버거 메뉴 애니메이션</h1>
+    <p>버튼을 클릭하면 메뉴가 슬라이드로 나오고, 삼지창이 X로 변합니다.</p>
+
+    <!-- 삼지창 버튼 -->
+    <button id="menuBtn">
+      <div class="bar bar1"></div>
+      <div class="bar bar2"></div>
+      <div class="bar bar3"></div>
+    </button>
+
+    <!-- 메뉴 -->
+    <nav id="menu">
+      <ul>
+        <li><a href="#">홈</a></li>
+        <li><a href="#">서비스</a></li>
+        <li><a href="#">문의</a></li>
+      </ul>
+    </nav>
+
+    <script>
+      const menuBtn = document.getElementById('menuBtn');
+      const menu = document.getElementById('menu');
+
+      // menuBtn.addEventListener('click', () => {
+      //   menuBtn.classList.toggle('active'); // 버튼 X 애니메이션 토글
+      //   menu.classList.toggle('active'); // 메뉴 슬라이드 토글
+      // });
+    </script>
+  </body>
+</html>

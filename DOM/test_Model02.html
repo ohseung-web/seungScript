@@ -3,15 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Model 만들기</title>
+    <title>모달</title>
     <style>
+      /* body부분에 font-family지정하면 
+      input과 button은 적용받지 못한다. */
       * {
-        font-family: 'Noto Sans KR', sans-serif;
+        font-family: sans-serif;
         box-sizing: border-box;
       }
       body {
         font-weight: 300;
-        color: black;
+        color: #222;
         font-size: 15px;
         line-height: 1.6em;
       }
@@ -19,45 +21,64 @@
         position: fixed;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
+        /* transform: translate(-50%, -50%); */
+        /* 위에서 아래로 애니메이션 */
+        transform: translate(-50%, -80%);
         z-index: 10;
+        /* 처음 opacity: 0; */
         opacity: 0;
-        /* display: none; */
         transition: 0.5s;
-        /* 화면에 보이지 않게 지정*/
       }
-      .modal-conetent {
-        /* border: 1px solid black; */
+      .modal.active {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+      }
+      .modal-content {
+        /* border: 1px solid #000; */
         width: 600px;
-        background-color: white;
         border-radius: 5px;
-        overflow: hidden;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 0 10px rgb(0, 0, 0, 0.15);
+        /* 배경색을 주지 않으면 화면에 안보임 */
+        background-color: #fff;
         display: flex;
+        /* 이미지 잘림 현상을 없앤다. */
+        overflow: hidden;
       }
-      .modal-conetent > div {
+      .modal-content > div {
         padding: 20px;
       }
       .photo {
         flex: 1;
-        background-image: url('images/office.jpg');
+        background: url(img/office.jpg);
         background-repeat: no-repeat;
         background-position: right;
         background-size: cover;
       }
-      .description {
+      .desc {
         flex: 2;
         text-align: center;
       }
       .overlay {
-        background-color: rgba(0, 0, 0, 0.235);
+        /* 오버레이를 6번째로 설정한다. */
+        /* 오버레이가 모달을 완전히 덮어 버렸다. 그럼 안되는 것이기때문에  */
+        /* 포지션 속성이 둘 다 존재할 때는 늦게나온 놈이 우선권이 있다. */
+        /* z-index를 정의하지 않으면 0이 된다. */
+        background-color: rgba(0, 0, 0, 0.3);
         position: fixed;
         width: 100%;
         height: 100vh;
         top: 0;
         left: 0;
-        opacity: 0;
+        transition: 0.5s;
+        /* 오버레이가 전체를 덮고있어서 버튼을 누를 수 없다. */
+        /* pointer-events: none;의 의미는 존재하지만 마우스 클릭을 받지 않겠다는 의미 */
+        /* pointer-events: none; */
         visibility: hidden;
+      }
+      .overlay.active {
+        opacity: 1;
+        /* pointer-events: all; */
+        visibility: visible;
       }
       .btn-close {
         position: absolute;
@@ -70,12 +91,13 @@
         cursor: pointer;
       }
       .btn-close:hover {
-        color: black;
+        color: #000;
       }
-      .btn-open {
-        cursor: pointer;
-      }
-      .desc-content input[type='email'] {
+      .desc .desc-content input[type='email'] {
+        /* 인라인요소이다. */
+        /* input, button은 display:block로 변경해도 
+           width:100%가 되지 않는다.
+        */
         display: block;
         width: 100%;
         text-align: center;
@@ -84,51 +106,44 @@
         border: 1px solid #ccc;
         outline: none;
       }
-      /* input에 클릭하면  placeholder 글자가 서서히 숨겨지는 CSS */
-      .desc-content input[type='email']::placeholder {
+      .desc .desc-content input[type='email']::placeholder {
         color: #bbb;
         transition: 0.5s;
       }
-      .desc-content input[type='email']:focus::placeholder {
+      .desc .desc-content input[type='email']:focus::placeholder {
+        /* display:none은 사라지는 기능이라 할 수 없다. */
         visibility: hidden;
+        /* 클릭 시  transition을 받기위해 넣음*/
         opacity: 0;
       }
-      .desc-content button {
+      .desc .desc-content button {
         display: block;
         width: 100%;
         border: none;
         background-color: crimson;
-        color: white;
+        color: #fff;
         cursor: pointer;
         padding: 7px;
-      }
-      /* modal과 overlay에 active class를 추가하여
-       [뉴스레이터]버튼을 클릭하면 모달창이 화면에 보이도록
-        opacity:1로 지정하는 CSS 작성한다. */
-      .modal.active {
-        opacity: 1;
-        display: block;
-      }
-      .overlay.active {
-        opacity: 1;
-        visibility: visible;
+        outline: none;
       }
     </style>
   </head>
   <body>
+    <!-- 모달 열기 버튼 -->
     <button class="btn-open">뉴스레터 구독하기</button>
-
+    <!-- 전체  -->
     <div class="modal">
-      <div class="modal-conetent">
+      <!--이미지와 문장 있는 곳  -->
+      <div class="modal-content">
         <div class="photo"></div>
-        <div class="description">
+        <div class="desc">
           <div class="desc-header">
-            <h2>지금 다양한 혜택을 받아보세요.</h2>
+            <h2>지금 다양한 혜택을 받아보세요</h2>
             <button class="btn-close">&times;</button>
           </div>
           <div class="desc-content">
             <input type="email" placeholder="이메일 주소를 입력하세요" />
-            <button type="button">뉴스레터 구독하기</button>
+            <button>뉴스레터 구독하기</button>
             <p>
               스타트업메이트 뉴스룸의 다양한 소식과 혜택을 이메일로 받아
               보시려면 구독 신청 해주시기 바랍니다. 스타트업메이트에 대해 알고
@@ -138,11 +153,10 @@
         </div>
       </div>
     </div>
+    <!-- 검은색 투명도 -->
     <div class="overlay"></div>
-
     <script>
-      // let btnOpen = document.querySelector('.btn-open');
-      // let btnClose = document.querySelector('.btn-close');
+      let btnOpen = document.querySelector('.btn-open');
       let btn = document.querySelectorAll('button');
       let modal = document.querySelector('.modal');
       let overlay = document.querySelector('.overlay');
@@ -162,9 +176,8 @@
       }
 
       // 자바스크립트로 모달창 구현
-
-      const btnOpen = document.querySelector('.btn-open'); // 열기 버튼
-      const btnClose = document.querySelector('.btn-close'); // 닫기 버튼
+      const btnOpen1 = document.querySelector('.btn-open'); // 열기 버튼
+      const btnClose1 = document.querySelector('.btn-close'); // 닫기 버튼
       const modal1 = document.querySelector('.modal'); // 모달
       const overlay1 = document.querySelector('.overlay'); // 오버레이(검은 배경)
 

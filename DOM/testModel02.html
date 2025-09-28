@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM 실습 - 메뉴바 오른쪽 위로 슬라이드 등장</title>
+    <style>
+      #menuBtn {
+        font-size: 24px;
+        cursor: pointer;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+      }
+
+      /* 메뉴 기본 상태: 오른쪽 위 밖으로 숨김 */
+      #menu {
+        position: fixed;
+        top: 60px;
+        right: -200px; /* 화면 밖으로 이동 */
+        width: 200px;
+        background: #333;
+        color: white;
+        padding: 10px;
+        border-radius: 8px;
+        transition: right 0.3s ease; /* 부드럽게 슬라이드 */
+      }
+
+      #menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      #menu li {
+        margin: 10px 0;
+      }
+
+      #menu li a {
+        color: white;
+        text-decoration: none;
+      }
+
+      /* 메뉴 열렸을 때 클래스 추가 */
+      #menu.active {
+        right: 20px; /* 화면 안으로 이동 */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+        동작 설명
+
+        초기 상태에서 메뉴는 right: -200px → 화면 밖으로 숨겨짐
+        버튼 클릭 시 active 클래스 추가 → right: 20px → 오른쪽 위로 슬라이드
+        다시 클릭하면 active 클래스 제거 → 메뉴 원래 위치로 슬라이드 아웃
+        CSS transition 덕분에 부드럽게 슬라이드됨
+    -->
+    <h1>DOM 실습 - 슬라이드 메뉴</h1>
+    <button id="menuBtn">☰</button>
+    <!-- 삼지창 버튼 -->
+    <nav id="menu">
+      <ul>
+        <li><a href="#">홈</a></li>
+        <li><a href="#">서비스</a></li>
+        <li><a href="#">문의</a></li>
+      </ul>
+    </nav>
+
+    <script>
+      const menuBtn = document.getElementById('menuBtn');
+      const menu = document.getElementById('menu');
+
+      menuBtn.addEventListener('click', () => {
+        menu.classList.toggle('active'); // 답안: active 클래스 토글
+      });
+    </script>
+  </body>
+</html>

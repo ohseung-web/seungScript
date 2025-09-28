@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM 실습 템플릿</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+      .section {
+        margin-bottom: 40px;
+      }
+      .box {
+        width: 50px;
+        height: 50px;
+        margin: 5px;
+        display: inline-block;
+        background: lightgray;
+        text-align: center;
+        line-height: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>DOM 실습 템플릿</h1>
+
+    <div class="section">
+      <h2>1. id 선택자로 텍스트 변경</h2>
+      <p id="text">안녕하세요</p>
+    </div>
+
+    <div class="section">
+      <h2>2. 클래스 선택자로 배경색 변경</h2>
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+    </div>
+
+    <div class="section">
+      <h2>3. 태그 선택자로 글자색 변경</h2>
+      <p>첫 번째 문장</p>
+      <p>두 번째 문장</p>
+    </div>
+
+    <div class="section">
+      <h2>4. querySelector로 첫 번째 요소 선택</h2>
+      <ul>
+        <li>사과</li>
+        <li>바나나</li>
+        <li>체리</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>5. querySelectorAll로 전체 선택</h2>
+      <ul>
+        <li>사과</li>
+        <li>바나나</li>
+        <li>체리</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>6. 요소 생성 및 추가</h2>
+      <ul id="list6"></ul>
+    </div>
+
+    <div class="section">
+      <h2>7. 요소 삭제</h2>
+      <ul id="list7">
+        <li>삭제될 항목</li>
+        <li>남길 항목</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>8. innerHTML 사용</h2>
+      <div id="content"></div>
+    </div>
+
+    <div class="section">
+      <h2>9. input 값 읽기</h2>
+      <input type="text" id="userInput9" value="안녕" />
+      <button id="btn9">확인</button>
+    </div>
+
+    <div class="section">
+      <h2>10. input 값 변경</h2>
+      <input type="text" id="userInput10" />
+    </div>
+
+    <div class="section">
+      <h2>11. 클래스 추가</h2>
+      <div id="box11"></div>
+    </div>
+
+    <div class="section">
+      <h2>12. 클래스 제거</h2>
+      <div id="box12" class="active"></div>
+    </div>
+
+    <div class="section">
+      <h2>13. 클래스 토글</h2>
+      <div id="box13" class="active"></div>
+      <button id="btn13">토글</button>
+    </div>
+
+    <div class="section">
+      <h2>14. 스타일 변경</h2>
+      <div id="box14" style="width: 100px; height: 100px"></div>
+    </div>
+
+    <div class="section">
+      <h2>15. 속성 변경</h2>
+      <a id="link15" href="https://naver.com">네이버</a>
+    </div>
+
+    <div class="section">
+      <h2>16. 속성 읽기</h2>
+      <img id="logo16" src="logo.png" width="50" />
+    </div>
+
+    <div class="section">
+      <h2>17. 부모 요소 찾기</h2>
+      <div class="parent17">
+        <p>자식 요소</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>18. 자식 요소 찾기</h2>
+      <ul id="list18">
+        <li>1</li>
+        <li>2</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>19. 형제 요소 찾기</h2>
+      <p>첫 번째</p>
+      <p>두 번째</p>
+      <p>세 번째</p>
+    </div>
+
+    <div class="section">
+      <h2>20. 노드 삽입</h2>
+      <ul id="list20">
+        <li>1</li>
+        <li>2</li>
+      </ul>
+    </div>
+
+    <script>
+      // 1. id 선택자로 텍스트 변경
+      const text1 = document.getElementById('text');
+      text1.textContent = 'DOM 실습 중급'; // 답안
+      console.log(text1.textContent);
+
+      // 2. 클래스 선택자로 배경색 변경
+      const boxes2 = document.getElementsByClassName('box');
+      for (let b of boxes2) {
+        b.style.backgroundColor = 'yellow'; // 답안
+      }
+
+      // 3. 태그 선택자로 글자색 변경
+      const ps3 = document.getElementsByTagName('p');
+      for (let p of ps3) {
+        p.style.color = 'blue'; // 답안
+      }
+
+      // 4. querySelector로 첫 번째 요소 선택
+      const firstLi4 = document.querySelector('ul li');
+      firstLi4.textContent = '포도'; // 답안
+
+      // 5. querySelectorAll로 전체 선택
+      const lis5 = document.querySelectorAll('ul li');
+      lis5.forEach((li) => (li.textContent = '과일')); // 답안
+
+      // 6. 요소 생성 및 추가
+      const li6 = document.createElement('li');
+      li6.textContent = '새 항목'; // 답안
+      document.getElementById('list6').appendChild(li6);
+
+      // 7. 요소 삭제
+      const list7 = document.getElementById('list7');
+      list7.removeChild(list7.firstElementChild); // 답안
+
+      // 8. innerHTML 사용
+      document.getElementById('content').innerHTML = '<p>DOM 연습</p>'; // 답안
+
+      // 9. input 값 읽기
+      document.getElementById('btn9').addEventListener('click', () => {
+        const val9 = document.getElementById('userInput9').value;
+        console.log(val9); // 답안
+      });
+
+      // 10. input 값 변경
+      document.getElementById('userInput10').value = 'DOM 실습'; // 답안
+
+      // 11. 클래스 추가
+      document.getElementById('box11').classList.add('active'); // 답안
+
+      // 12. 클래스 제거
+      document.getElementById('box12').classList.remove('active'); // 답안
+
+      // 13. 클래스 토글
+      document.getElementById('btn13').addEventListener('click', () => {
+        document.getElementById('box13').classList.toggle('active'); // 답안
+      });
+
+      // 14. 스타일 변경
+      document.getElementById('box14').style.backgroundColor = 'red'; // 답안
+
+      // 15. 속성 변경
+      document.getElementById('link15').href = 'https://google.com'; // 답안
+
+      // 16. 속성 읽기
+      console.log(document.getElementById('logo16').src); // 답안
+
+      // 17. 부모 요소 찾기
+      const p17 = document.querySelector('.parent17 p');
+      p17.parentElement.style.backgroundColor = 'pink'; // 답안
+
+      // 18. 자식 요소 찾기
+      const firstChild18 = document.getElementById('list18').children[0];
+      firstChild18.textContent = '첫 번째'; // 답안
+
+      // 19. 형제 요소 찾기
+      const second19 = document.querySelectorAll('p')[1];
+      second19.previousElementSibling.textContent = '이전'; // 답안
+
+      // 20. 노드 삽입
+      const newLi20 = document.createElement('li');
+      newLi20.textContent = '0'; // 답안
+      const list20 = document.getElementById('list20');
+      list20.insertBefore(newLi20, list20.firstChild);
+    </script>
+  </body>
+</html>
