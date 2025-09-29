@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>함수연습</title>
+  </head>
+  <body>
+    <!DOCTYPE html>
+    <html>
+      <body>
+        <p id="text">색상이 바뀝니다</p>
+        <button id="colorBtn">색상 변경</button>
+
+        <script>
+          const colors = ['red', 'blue', 'green'];
+          let index = 0;
+          let btn = document.getElementById('colorBtn');
+
+          btn.addEventListener('click', function () {
+            let p = document.getElementById('text');
+            switch (index) {
+              case 0:
+                p.style.color = colors[0];
+                console.log(colors);
+                break;
+              case 1:
+                p.style.color = colors[1];
+                console.log(colors);
+                break;
+              case 2:
+                p.style.color = colors[2];
+                console.log(colors);
+                break;
+            }
+            index++;
+          });
+
+          // .addEventListener("click", function() {
+          //   let p = document.getElementById("text");
+          //   p.style.color = colors[index];
+          //   index = (index + 1) % colors.length;
+          // });
+        </script>
+      </body>
+    </html>
+  </body>
+</html>

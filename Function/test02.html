@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>function</title>
+  </head>
+  <body>
+    <button id="btn">클릭해봐</button>
+    <script>
+      const btn = document.getElementById('btn');
+
+        function onClickHandler(event) {
+        console.log('[handler] 이벤트 시작', event.type);
+        const time = new Date().toLocaleTimeString();
+        console.log('[handler] 현재 시간:', time);
+        btn.textContent = '클릭됨 @ ' + time; // DOM 변경 (부작용)
+        }
+
+        btn.addEventListener('click', onClickHandler);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>function</title>
+  </head>
+  <body>
+    <script>
+      function add(a, b) {
+        console.log('[1] add 함수 시작'); // 함수가 호출되면 제일 먼저 찍힘
+        console.log('[2] 매개변수:', a, b);
+
+        const result = a + b;
+        console.log('[3] 계산 결과:', result);
+
+        console.log('[4] 함수 종료 직전');
+        return result;
+      }
+
+      console.log('호출 결과:', add(2, 3));
+      add(2, '3');
+      // function add(a, b) {
+      //   console.log('[add] 시작 — 매개변수', a, b);
+      //   const result = a + b; // 내부 계산
+      //   console.log('[add] 계산 결과', result);
+      //   return result; // 반환
+      // }
+
+      // console.log('--- 함수 호출 전 ---');
+      // console.log('호출 결과:', add(2, 3));
+      // console.log('--- 함수 호출 후 ---');
+    </script>
+  </body>
+</html>

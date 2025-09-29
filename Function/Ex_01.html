@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>함수연습</title>
+  </head>
+  <body>
+    <!DOCTYPE html>
+    <html>
+      <body>
+        <button id="btn">클릭</button>
+        <button id="timeBtn">현재 시간 보기</button>
+        <script>
+          // 1번
+          function greetUser(name) {
+            return '안녕하세요, ' + name + '님!';
+          }
+          console.log(greetUser('철수'));
+
+          // 2번
+          function getDiscountPrice(price, rate) {
+            return price - price * rate;
+          }
+          console.log(getDiscountPrice(10000, 0.1)); // 9000
+
+          // 3번
+          let count = 0;
+          document.getElementById('btn').addEventListener('click', function () {
+            count++;
+            console.log('클릭 횟수:', count);
+          });
+
+          // 4번
+          function getTotal(cart) {
+            let sum = 0;
+            for (let i = 0; i < cart.length; i++) {
+              sum += cart[i];
+            }
+            // for (let price of cart) {
+            //   sum += price;
+            // }
+            return sum;
+          }
+          console.log(getTotal([1000, 2000, 3000])); // 6000
+
+          // 5번
+          function validatePassword(pw) {
+            return pw.length >= 8;
+          }
+          console.log(validatePassword('1234')); // false
+          console.log(validatePassword('12345678')); // true
+          // 6번
+          document
+            .getElementById('timeBtn')
+            .addEventListener('click', function () {
+              let now = new Date();
+              console.log('현재 시간:', now.toLocaleString());
+            });
+        </script>
+      </body>
+    </html>
+  </body>
+</html>

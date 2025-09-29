@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EventListener 연습3</title>
+  </head>
+  <body>
+    <div id="container">
+      <img id="img" src="images/girl.png" alt="girl" />
+      <!-- <img id="img" src="images/girl.png" alt="girl"
+         onmouseover="changeImgOver()"
+         onmouseout="changeImgOut()"> -->
+    </div>
+
+    <script>
+      // window.onload = function () {
+      const img = document.getElementById('img');
+
+      img.addEventListener('mouseover', function () {
+        img.src = 'images/boy.png';
+      });
+
+      img.addEventListener('mouseout', function () {
+        img.src = 'images/girl.png';
+      });
+      // };
+      // function changeImgOver() {
+      //   document.getElementById("img").src = "images/boy.png";
+      // }
+      // function changeImgOut() {
+      //   document.getElementById("img").src = "images/girl.png";
+      // }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>함수연습</title>
+  </head>
+  <body>
+    <!DOCTYPE html>
+    <html>
+      <body>
+        <input id="num1" type="number" /> +
+        <input id="num2" type="number" />
+        <button id="sumBtn">계산</button>
+        <div id="result"></div>
+
+        <script>
+          let sumBtn = document.getElementById('sumBtn');
+          let result = document.getElementById('result');
+          sumBtn.addEventListener('click', function () {
+            let n1 = Number(document.getElementById('num1').value);
+            let n2 = Number(document.getElementById('num2').value);
+            result.innerText = '결과: ' + (n1 + n2);
+          });
+        </script>
+      </body>
+    </html>
+  </body>
+</html>
