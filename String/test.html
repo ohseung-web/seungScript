@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>String 객체 설명</title>
+  </head>
+  <body>
+    <script>
+      //  let str = "hello"는 new로 생성한 객체(Object)는 아니지만
+      //   String(래퍼 Object)이기때문
+      //  String Object가 사용하는 모든 프로퍼티(=메서드)를
+      //  사용할 수 있다.
+      // 이유는 자바스크립트가 일반 String을 객체화하여 변형하기때문이다.
+
+      let str = 'Hello'; // 데이터타입 String임
+      console.log(`데이터 타입:${typeof str}`);
+      console.log(`${str.charAt(0)}`); // H
+      console.log(`${str.charAt(1)}`); // e
+      console.log(`${str.charAt(2)}`); // l
+      console.log(`${str.charAt(3)}`); // l
+
+      for (let i = 0; i < str.length; i++) {
+        console.log(str.charAt(i));
+      }
+
+      for (let i = 0; i < str.length; i++) {
+        console.log(str[i]);
+      }
+
+      // new String() 객체를 생성
+      let str02 = new String('Boys and Girls');
+      let str03 = '!';
+      // 태그 사용하지 않고 브라우저에 출력하는 명령어
+      document.write('str02:' + str02 + '<br/>');
+      document.write('str03:' + str03 + '<br/>');
+      document.write(str02.charAt(0) + '<br/>');
+      // String 데이터 타입은 공백도 문자이다.
+      // concat()프로퍼티는 문자합치기(한 줄로 나열)
+      document.write(str02.concat(str03) + '<br/>');
+      document.write(str02 + str03 + '<br/>');
+      // s라는 문자가 몇번째 위치인지 index 번호 출력
+      document.write(str02.indexOf('s') + '<br/>');
+      // slice(start , end) => 문자 자르기 end-1까지 자름
+      document.write(str02.slice(5, 8) + '<br/>');
+      // substr(start, length) : 시작부터 길이까지 자르기
+      document.write(str02.substr(5, 8) + '<br/>');
+      // replace(찾을문자, 바꿀문자)=> 찾을문자를 바꿀문자로 변경하여 출력
+      document.write(str02.replace('and', 'or') + '<br/>');
+      // str02.repeat(반복할 횟수) => str02 문자를 반복할 횟수만큼 출력
+      document.write(str02.repeat(3) + '<br/>');
+      // 왼쪽/오른쪽의 공백을 제거, 단, 가운데 공백은 제거 불가능
+      document.write('  korea'.trim() + '<br/>');
+
+      // 문자열 "hello javaScript"의 길이를 세어 주세요
+      let str04 = 'hello java script';
+      console.log(str04.length);
+
+      //  str04에서 첫번째 문자와, 7번째 문자만 추출
+      console.log(str04.charAt(0));
+      console.log(str04.charAt(6));
+
+      //  str04에서 javascript만 추출
+      //  시작위치는 항상 index임을 인식하자 고로 위치 7은
+      //  index로 6이다.
+      console.log(str04.substr(6, 10));
+
+      // str04에서 java라는 문자가 시작되는 위치를 찾아서 출력
+      // indexof로 문자의 위치를 추출하려 하였으나 -1이 출력됨은
+      // 문자가 존재하지 않는다.
+      // 문자는 대소문자 구분한다.
+      console.log(str04.indexOf('J'));
+
+      let str05 = 'apple,banana,grape';
+      let sub = str05.split(','); //배열생성
+      console.log(sub);
+      for (let i = 0; i < sub.length; i++) {
+        console.log(sub[i]);
+      }
+    </script>
+  </body>
+</html>

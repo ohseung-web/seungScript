@@ -35,6 +35,17 @@
         // i를 1부터 9까지 반복
         console.log('5 x ' + i + ' = ' + 5 * i); // 5단 결과 출력
       }
+
+      // forEach문
+      const fruits = ['사과', '바나나', '포도'];
+
+      fruits.forEach((item, i, array) => {
+        console.log(item);
+      });
+
+      fruits.forEach(function (item, index) {
+        console.log(index, item);
+      });
     </script>
   </body>
 </html>

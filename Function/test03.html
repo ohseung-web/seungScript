@@ -14,12 +14,12 @@
       let sideNavi = document.getElementById('sideNavi');
       let btn1 = document.getElementById('btn');
 
-      //  function을 선언적 함수방식으로 작성하고 DOM 이벤트 핸들러 방식을 사용하면 버튼을 클릭하기 전에 미리 style가 변경되어 출력된다.
-      // 이유는 호이스팅이 되기떄문이다.
+      //  function을 선언적 함수방식으로 작성하고 DOM 이벤트 핸들러 방식을 사용하면 버튼을 클릭하기 전에 미리 style이 변경되어 출력된다.
+      // 이유는 호이스팅이 되기때문이다.
       // 이럴땐 function을 화살표함수 또는 익명함수 방식으로 작성한다.
 
-      // 자바스크립트에서 **변수 선언(var, let, const)과 함수 선언(function)**이 실제 코드가 실행되기 전에 자동으로 최상단으로 끌어올려지는 현상을 말합니다.
-      // 즉, 자바스크립트 엔진이 코드를 실행하기 전에 선언부를 먼저 처리한다는 뜻이에요.
+      // 자바스크립트에서 **변수 선언(var, let, const)과 함수 선언(function)**이 실제 코드가 실행되기 전에 자동으로 최상단으로 끌어올려지는 현상을 말한다.
+      // 즉, 자바스크립트 엔진이 코드를 실행하기 전에 선언부를 먼저 처리한다는 뜻이다.
 
       function aa() {
         sideNavi.style.backgroundColor = 'pink';

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Math</title>
+  </head>
+  <body>
+    <script>
+      let num = 3.1;
+      let num2 = 5.7;
+      let num3 = 30.1234;
+      // Math의 프로퍼티는 데이터 타입 숫자이다.
+      console.log(Math.ceil(num)); //4 무조건 올림
+      console.log(Math.ceil(num2)); //6 무조건 올림
+      console.log(Math.floor(num2)); //5 무조건 내림
+      console.log(Math.floor(num)); //3 무조건 내림
+      // toFixed()프로퍼티는 문자열이 된다
+      console.log(num.toFixed(0));
+      console.log(typeof num.toFixed(0));
+      // toFixed() => 숫자로 변경 Number(toFixed(0))
+      // 반올림됨(5이상 반올림)
+      console.log(Number(num2.toFixed(0)));
+      // round()프로퍼티는 소수 첫번째 자리수가
+      // 5이상이면 반올림 함, 아니면 반올림 안함
+      console.log(Math.round(num)); //3
+      console.log(Math.round(num2)); //6
+      console.log('소수자리수' + Math.round(num3));
+      // abs : 절대값 음수도 양수도 무조건 양수
+      console.log('abs' + Math.abs(-3));
+      // sqrt : 제곱근
+      console.log('제곱근' + Math.sqrt(16)); //
+      // 난수 발생 : 0 ~ 1까지 수를 무작위로 출력
+      // random() 난수 발생 프로퍼티
+      console.log(Math.random());
+      console.log(Math.random());
+      // 0부터 ~ 100까지의 난수를 발생시켜라
+      // 88.82751710061936
+      console.log(Math.random() * 100);
+      //  Math.floor() : 91 정수로 출력
+      // 0부터 ~ 100
+      console.log(Math.floor(Math.random() * 100));
+      // 1부터 ~ 100까지 난수 발생
+      console.log(Math.floor(Math.random() * 100) + 1);
+      console.log(Math.max(-1, 2, 5, -3)); //최대값
+      console.log(Math.min(-1, 2, 5, -3)); //최소값
+    </script>
+  </body>
+</html>
