@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실전문제</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <style></style>
+  </head>
+  <body>
+    <!-- 문제3: input + .counter -->
+    <label for="txt">메시지:</label>
+    <input type="text" id="txt" />
+    <div>글자수: <span class="counter">0</span></div>
+
+    <script>
+      $(function () {
+        $('#txt').keyup(function () {
+          $('.counter').text($(this).val().length);
+        });
+      });
+    </script>
+  </body>
+</html>

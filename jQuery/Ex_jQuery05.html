@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실전문제</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 30px;
+        background-color: #f9f9f9;
+      }
+      /* 리스트 스타일 */
+      .items {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 200px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        overflow: hidden;
+      }
+      .item {
+        padding: 12px 16px;
+        border-bottom: 1px solid #eee;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      .item:last-child {
+        border-bottom: none;
+      }
+      /* 마우스 올렸을 때 효과 */
+      .item:hover {
+        background-color: #f0f0f0;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="items">
+      <li class="item">항목 1</li>
+      <li class="item">항목 2</li>
+      <li class="item">항목 3</li>
+      <li class="item">항목 4</li>
+    </ul>
+
+    <script>
+      $(function () {
+        $('.item').click(function () {
+          $(this).css('background', 'yellow').siblings().css('background', '');
+        });
+      });
+    </script>
+  </body>
+</html>

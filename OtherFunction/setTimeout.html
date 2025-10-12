@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>setTimeOut</title>
+  </head>
+  <body>
+    <div id="clock"></div>
+
+    <script>
+      // 1밀리초 => 0.001초, 10밀리초 => 0.01초., 2500밀리초 => 2.5초
+      setTimeout(() => console.log('2초후 실행됨'), 2000);
+
+      function setClock() {
+        let now = new Date();
+        let s =
+          now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
+        document.getElementById('clock').innerHTML = s;
+        setTimeout('setClock()', 1000);
+      }
+      setClock();
+    </script>
+  </body>
+</html>

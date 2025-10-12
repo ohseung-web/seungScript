@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실전문제</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        padding: 50px;
+      }
+      /* 버튼 스타일 */
+      .show-btn,
+      .hide-btn {
+        padding: 10px 20px;
+        margin-right: 10px;
+        border: none;
+        background-color: #007bff;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+      .show-btn:hover,
+      .hide-btn:hover {
+        background-color: #0056b3;
+      }
+      /* 메뉴 스타일 */
+      .menu {
+        margin-top: 20px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        width: 200px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        overflow: hidden;
+      }
+      .menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .menu li {
+        padding: 12px 16px;
+        border-bottom: 1px solid #eee;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .menu li:hover {
+        background-color: #f0f0f0;
+      }
+
+      .menu li:last-child {
+        border-bottom: none;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="show-btn">보이기</button>
+    <button class="hide-btn">감추기</button>
+
+    <nav class="menu" style="display: none">
+      <ul>
+        <li>메뉴1</li>
+        <li>메뉴2</li>
+        <li>메뉴3</li>
+      </ul>
+    </nav>
+
+    <script>
+      $('.show-btn').click(function () {
+        $('.menu').fadeIn();
+      });
+      $('.hide-btn').click(function () {
+        $('.menu').fadeOut();
+      });
+    </script>
+  </body>
+</html>

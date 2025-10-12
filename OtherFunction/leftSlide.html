@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>왼쪽 슬라이드</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+      body {
+        background: #f0f0f0;
+      }
+      h1 {
+        text-align: center;
+        padding: 20px 0;
+        color: #333;
+      }
+      /* 삼지창 버튼 */
+      #menuBtn {
+        font-size: 28px;
+        cursor: pointer;
+        position: fixed;
+        top: 20px;
+        left: 20px; /* 왼쪽으로 이동 */
+        z-index: 1001;
+        background: #333;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        /* transition은 요소의 속성이 바뀔 때, 
+           즉시 바뀌지 않고 일정 시간 동안 부드럽게 변화 */
+        transition: 0.3s;
+        /* transition: background 0.3s ease; */
+      }
+      #menuBtn:hover {
+        background: #555;
+      }
+      /* 메뉴 기본 상태: 왼쪽 화면 밖, 회색 배경 */
+      #menu {
+        position: fixed;
+        top: 0;
+        /* 화면 밖 */
+        left: -300px;
+        /* left: 300px; */
+        width: 250px;
+        height: 100%;
+        background: #555; /* 진한 회색으로 변경 */
+        color: white;
+        padding: 50px 20px;
+        box-shadow: 3px 0 15px rgba(0, 0, 0, 0.3);
+        border-radius: 0 8px 8px 0;
+        transition: 0.3s;
+        /* transition: left 0.3s ease; */
+        z-index: 1000;
+      }
+      #menu ul {
+        list-style: none;
+        margin-top: 50px;
+      }
+      #menu li {
+        margin: 20px 0;
+      }
+      #menu li a {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 8px 12px;
+        display: block;
+        border-radius: 5px;
+        transition: 0.3s;
+        /* transition: background 0.2s ease; */
+      }
+      #menu li a:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+      /* 메뉴 활성화 */
+      #menu.active {
+        left: 0; /* 화면 안으로 슬라이드 */
+      }
+    </style>
+  </head>
+  <body>
+    <h1>DOM 실습 - 왼쪽 슬라이드 메뉴</h1>
+    <!-- 삼지창 버튼 -->
+    <button id="menuBtn">&#x2630;</button>
+    <!-- 메뉴 -->
+    <nav id="menu">
+      <ul>
+        <li><a href="#">홈</a></li>
+        <li><a href="#">서비스</a></li>
+        <li><a href="#">문의</a></li>
+        <li><a href="#">연락처</a></li>
+        <li><a href="#">소개</a></li>
+      </ul>
+    </nav>
+
+    <script>
+      const menuBtn = document.getElementById('menuBtn');
+      const menu = document.getElementById('menu');
+
+      // 클릭 시 메뉴 토글
+      menuBtn.addEventListener('click', () => {
+        menu.classList.toggle('active'); // 메뉴 슬라이드
+      });
+    </script>
+  </body>
+</html>

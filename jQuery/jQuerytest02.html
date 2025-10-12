@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      a {
+        display: inline-block;
+        color: #000;
+        text-decoration: none;
+        background-color: #ddd;
+        width: 200px;
+        text-align: center;
+        padding: 5px;
+      }
+      div {
+        background-color: dodgerblue;
+        height: 200px;
+        margin-top: 10px;
+        width: 200px;
+        color: #fff;
+        text-align: center;
+        line-height: 200px;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <a class="btn" href="#">보이기/감추기</a>
+    <div>BOX</div>
+
+    <script>
+      // $(function () {
+      //   // 보이기
+      //   $('.btn').mouseenter(function () {
+      //     $('div').show();
+      //   });
+      //   // 감추기
+      //   $('.btn').mouseleave(function () {
+      //     $('div').hide();
+      //   });
+      // });
+
+      // toggle 방식을 이용하면 마우스를 div안으로 이동 할 수 있다.
+      $(function () {
+        $('.btn').click(function () {
+          $('div').toggle();
+        });
+      });
+    </script>
+  </body>
+</html>

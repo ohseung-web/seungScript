@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>clearTimeOut</title>
+  </head>
+  <body>
+    <!-- <button id="stopBtn">멈춰!</button> -->
+
+    <script>
+      // let timer = setTimeout(() => {
+      //   alert('5초가 지났습니다!');
+      // }, 5000);
+
+      // let stopBtn = document.getElementById('stopBtn');
+      // stopBtn.addEventListener('click', () => {
+      //   clearTimeout(timer);
+      //   alert('타이머가 취소되었습니다!');
+      // });
+
+      let timer = setTimeout(() => {
+        console.log('3초 후 한 번만 실행됩니다!');
+      }, 3000);
+
+      // 2초 후 타이머 취소
+      setTimeout(() => {
+        clearTimeout(timer);
+        console.log('타이머가 취소되었습니다.');
+      }, 2000);
+    </script>
+  </body>
+</html>

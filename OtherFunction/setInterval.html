@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>setInterval</title>
+  </head>
+  <body>
+    <script>
+      let count = 0;
+      let timer = setInterval(() => {
+        count++;
+        console.log(`(${count}) 1초마다 실행됩니다.`);
+
+        if (count === 5) {
+          clearInterval(timer);
+          console.log('5번 실행 후 종료되었습니다.');
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>
