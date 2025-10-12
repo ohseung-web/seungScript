@@ -93,7 +93,8 @@
       // id가 'photo'인 <img> 요소를 찾아 변수 photo에 할당.
       // 슬라이드에 보여줄 이미지를 바꿀 때 이 요소의 src를 변경합니다.
       let photo = document.getElementById('photo');
-      // '.btns span' 셀렉터로 하단의 점(네비게이션) 버튼들을 모두 선택해 NodeList로 반환.
+      // '.btns span' 셀렉터로 하단의 점(네비게이션) 버튼들을
+      // 모두 선택해 NodeList로 반환.
       // btns[0], btns[1], ... 형태로 각 버튼에 접근 가능.
       let btns = document.querySelectorAll('.btns span');
       // id가 'togglebtn'인 요소를 찾아 재생/정지 토글 버튼으로 사용.
@@ -143,7 +144,8 @@
       // -----------------------------
       function startSlide() {
         // setInterval을 사용하여 3000ms(3초)마다 콜백 실행.
-        // 콜백 내부는 currnet(현재 인덱스)를 1 증가시키고, 범위를 벗어나면 0으로 되돌림.
+        // 콜백 내부는 currnet(현재 인덱스)를 1 증가시키고,
+        // 범위를 벗어나면 0으로 되돌림.
         // 그런 다음 showSlide(currnet)를 호출하여 화면 갱신.
         timer = setInterval(() => {
           // 5 % 5 = 0
@@ -167,7 +169,8 @@
       }
 
       // 초기실행 : 함수call
-      // 페이지 로드 직후 현재 인덱스(currnet)에 해당하는 슬라이드를 먼저 보여줌
+      // 페이지 로드 직후 현재 인덱스(currnet)에
+      // 해당하는 슬라이드를 먼저 보여줌
       showSlide(current);
       // 자동 재생 시작 (3초 간격)
       startSlide();
